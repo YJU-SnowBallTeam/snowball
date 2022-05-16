@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <!-- 부트스트랩 css 사용 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
+<script type="text/javascript" src="/resource/js/bootstrap.js"></script> -->
 
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,7 +40,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             opacity: 0.9;
-            height: 800px;
+            height: 100vh;
         }
 
         .navbar {
@@ -101,8 +101,8 @@
         }
 
         @media screen and (max-width: 768px) {
-            #img {
-                position: absolute;
+            section {
+                background-attachment: fixed ;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -113,7 +113,7 @@
             }
 
             .navbar {
-                position: relative;
+                /* position: relative; */
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 8px 24px;
@@ -127,6 +127,8 @@
             }
 
             .navbar__menu li {
+                padding-top: 10px;
+                padding-bottom: 10px;
                 width: 100%;
                 text-align: center;
             }
@@ -140,6 +142,11 @@
             .navbar__toggleBtn {
                 display: block;
             }
+            .navbar__menu li:hover {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+
+        }
 
             .navbar__menu.active,
             .navbar__sns.active {
