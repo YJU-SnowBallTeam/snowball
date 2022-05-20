@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+    <style>
+        :root {
+            --text-color: #f0f4f5;
+            --background-color: #000a12;
+            --accent-color: #ffa726;
+        }
+        *{
+            text-decoration: none;
+        }
+        body {
+            margin: 0;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        #img {
+            background-image: url('https://a.cdn-hotels.com/gdcs/production85/d317/8cc5e5c5-323d-4f7b-9531-67eaf66e72b0.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.9;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--background-color);
+            padding: 8px 12px;
+            font-family: 'Source Sans Pro', sans-serif;
+            
+        }
+
+        .navbar__logo {
+            font-size: 24px;
+            color: var(--text-color);
+        }
+        
+        .navbar__logo i {
+            color: var(--accent-color);
+        }
+        
+        .navbar__menu {
+            padding-top: 20px;
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+            text-decoration: none;
+            
+        }
+
+        .navbar__menu li {
+            padding-top: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        .navbar__menu li:hover {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            text-decoration: none;
+            
+        }
+        
+        .navbar__sns {
+            list-style: none;
+            display: flex;
+            padding-left: 0;
+            padding-top: 20px;
+        }
+
+        .navbar__sns li {
+            padding: 8px 12px;
+        }
+
+        .navbar__toggleBtn {
+            display: none;
+            position: absolute;
+            right: 32px;
+            font-size: 24px;
+            color: var(--accent-color) !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            section {
+                background-attachment: fixed ;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                opacity: 0.9;
+                padding-top: 200px;
+                height: 100vw;
+                width: 100vw;
+            }
+
+            .navbar {
+                /* position: relative; */
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 8px 24px;
+            }
+
+            .navbar__menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .navbar__menu li {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar__sns {
+                display: none;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .navbar__toggleBtn {
+                display: block;
+            }
+            .navbar__menu li:hover {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+
+        }
+
+            .navbar__menu.active,
+            .navbar__sns.active {
+                display: flex;
+            }
+        }
+    </style>
+    <!DOCTYPE html>
+    <html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="폰트어썸 본인 CDN"
+            crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+        <script src="main.js" defer></script>
+        <title>NavBar</title>
+    </head>
+
+    <body>
+        <div>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <i class="fab fa-amazon"></i>
+                <a href="#">YungJin</a>
+            </div>
+            <ul class="navbar__menu">
+                <li><a href="#" style="text-decoration: none;" >Fukuoka</a></li>
+                <li><a href="#" style="text-decoration: none;">Bulletin Board</a></li>
+                <li><a href="#" style="text-decoration: none;">Schedule</a></li>
+                <li><a href="#" style="text-decoration: none;">Groups</a></li>
+            </ul>
+            <ul class="navbar__sns">
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+            <a href="#" class="navbar__toggleBtn"> <i class="fas fa-bars"></i> </a>
+        </nav>
+        <div id = 'outerSection'>
+            <!-- 옆에 네비게이션 바가 따라다녔으면 좋겠음. -->
+        <section>
+             <table class="table table-hover" style="">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 10vw;">번호</th>
+                    <th scope="col" style="width: 40vw;;">제목</th>
+                    <th scope="col" style="width: 10vw;">글쓴이</th>
+                    <th scope="col">작성일</th>
+                  </tr>
+                </thead>
+                <body>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td style="width: 40vw; text-align: left;">Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td style="width: 40vw; text-align: left;">Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td style="width: 40vw; text-align: left;">Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </body>
+              </table>
+              <!-- 추후 자바스크립트로 추가 구현 -->
+              <!-- 추후 맨위로가기 맨아래로가기 구현 -->
+        </section>
+        </div>
+        <footer>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Fukuoka</th>
+                    <th scope="col">Bulletin Board</th>
+                    <th scope="col">Schedule</th>
+                    <th scope="col">Groups</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                  <tr>
+                    <td><a href="">날씨</a></td>
+                    <td><a href="">YungStargram</a></td>
+                    <td><a href="">학교 일정</a></td>
+                    <td><a href="">그룹톡</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="">연혁</a></td>
+                    <td><a href="">공지</a></td>
+                    <td><a href="">개인 일정</a></td>
+                    <td><a href="">비상연락처</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="">관광지</a></td>
+                    <td><a href=""></a></td>
+                    <td><a href="">개인톡</a></td>
+                    <td><a href=""></a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="">근처??</a></td>
+                    <td><a href=""></a></td>
+                    <td><a href=""></a></td>
+                    <td><a href=""></a></td>
+                  </tr>
+                </tbody>
+            </table>
+        </footer>
+    </div>
+    </body>
+    <script>
+        const toggleBtn = document.querySelector('.navbar__toggleBtn');
+        const menu = document.querySelector('.navbar__menu');
+        const sns = document.querySelector('.navbar__sns');
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            sns.classList.toggle('active');
+        });
+        toggleBtn.addEventListener('mouseover', () => {
+            menu.classList.toggle();
+        })
+    </script>
+
+    </html>
+</body>
+
+</html>
