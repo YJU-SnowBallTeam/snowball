@@ -91,10 +91,10 @@ function calendarInit() {
     });
 }
 
-const Daycur = document.querySelector('.day .current');
+const Daycur = document.querySelector('.day.current');
 const allCal = document.querySelector('#all_cal')
 const time = document.querySelector('#time')
-var currentMonthDate = document.querySelectorAll('.current');
+var currentMonthDate = document.getElementsByClassName('day current')
 
 // $(document).ready(function(){
 //     $("#allCal").click(function(){
@@ -115,7 +115,7 @@ function clickEvent(){
         time.style.marginTop = "100px"
         time.style.display = "block"
     }, 500);
-        
+    console.log(currentMonthDate);
     
     
 }
