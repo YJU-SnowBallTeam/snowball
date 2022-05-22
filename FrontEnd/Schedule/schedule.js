@@ -63,7 +63,7 @@ function calendarInit() {
         }
         // 이번달
         for (var i = 1; i <= nextDate; i++) {
-            calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
+            calendar.innerHTML = calendar.innerHTML + `<div class="day current" value = ${i}>` + i + '</div>'
         }
         // 다음달
         for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
@@ -94,29 +94,34 @@ function calendarInit() {
 const Daycur = document.querySelector('.day.current');
 const allCal = document.querySelector('#all_cal')
 const time = document.querySelector('#time')
-var currentMonthDate = document.getElementsByClassName('day current')
+const timeDiv = document.querySelector('#timeDiv')
 
-// $(document).ready(function(){
-//     $("#allCal").click(function(){
-//         $("#time").fadeIn(1000);
-// })
-// })
+$('.day').click(function(){ 
 
-// allCal.on('click',clickEvent)
-
+    var get12 = $(this).attr('value'); 
+    
+    var get22 = $(this).text();
+    
+    console.log(get12, get22);
+    
+    })
 function clickEvent(){
     allCal.style.transform = `translateX(-20vw)`
     allCal.style.transition = `1s ease-out`
+    $('.day').click(function(){ 
+        var get12 = $(this).attr('value'); 
+        console.log(get12);
+        timeDiv.innerHTML = `<div style = "backgroundColor : black; display : inline-block">${get12}일의 일정은?</div>` 
+        })
+        
     setTimeout(() => {
         $('#time').fadeIn(500);
-        time.style.transform = `translateY(-50vh)`
+        time.style.transform = `translateY(-70vh)`
         time.style.transition = `1.5s ease-out`    
         time.style.height = "400px"
         time.style.marginTop = "100px"
         time.style.display = "block"
     }, 500);
-    console.log(currentMonthDate);
-    
     
 }
 
