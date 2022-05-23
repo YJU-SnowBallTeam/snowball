@@ -12,6 +12,12 @@ a {
     text-decoration: none;
     color: var(--text-color);
 }
+a img{
+    width: 24px;
+    height: 24px;
+    padding-bottom: 2px;
+}
+
 
 
 
@@ -72,64 +78,6 @@ a {
     color: var(--accent-color) !important;
 }
 
-@media screen and (max-width: 768px) {
-   
-    section {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: 0.9;
-        padding-top: 200px;
-        height: 100vw;
-        width: 100vw;
-    }
-
-    .navbar {
-        /* position: relative; */
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
-    }
-
-    .navbar__menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        
-    }
-    .hide_under{
-        text-decoration: none;
-    }
-    .navbar__menu li {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar__sns {
-        display: none;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .navbar__toggleBtn {
-        display: block;
-    }
-
-    .navbar__menu li:hover {
-        background-color: var(--accent-color);
-        border-radius: 10px;
-
-    }
-
-    .navbar__menu.active,
-    .navbar__sns.active {
-        display: flex;
-    }
-}
 
 #outerSection{
     text-align: center;
