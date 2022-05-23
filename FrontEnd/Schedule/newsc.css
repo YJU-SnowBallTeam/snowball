@@ -1,9 +1,6 @@
 /* section calendar */
 
 .sec_cal {
-
-    width: 100%;
-    margin: 0 auto;
     font-family: "NotoSansR";
 }
 #all_cal{
@@ -129,6 +126,7 @@ div.day.current:hover{
     border-radius: 10px;
 }
 #formtag{
+    height: 1000px;
     animation: fadein 3s;
     float: right;
     /* padding-right: 5vw; */
