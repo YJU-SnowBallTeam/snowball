@@ -108,12 +108,111 @@ $('.day').click(function(){
 function clickEvent(){
     allCal.style.transform = `translateX(-20vw)`
     allCal.style.transition = `1s ease-out`
+    
     $('.day').click(function(){ 
         var get12 = $(this).attr('value'); 
         console.log(get12);
-        timeDiv.innerHTML = `<div style = "backgroundColor : black; display : inline-block">${get12}일의 일정은?</div>` 
+        time.innerHTML = `<div style= "display : inline-block; transition : 1s ease-out; margin-bottom : 10px">${get12}일의 일정은?</div>
+        <div id = "formtag">
+        <form>
+            <table id="time">
+                <td>시간</td>
+                <td>무엇을 하실건가요?<br /></td>
+                <tr>
+                    <td>00:00</td>
+                    <td><input name="firstname" type="text" style="width: 400px;" /><br /></td>
+                </tr>
+                <tr>
+                    <td>01:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>02:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>03:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>04:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>05:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>06:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>07:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>08:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>09:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>15:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>16:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>17:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>18:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>19:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>20:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>21:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>22:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>23:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+                <td>24:00</td>
+                <td><input name="firstname" type="text" /><br /></td>
+                </tr>
+    
+            </table>
+        </form>
+    </div>` 
         })
-        
     setTimeout(() => {
         $('#time').fadeIn(500);
         time.style.transform = `translateY(-70vh)`
@@ -126,4 +225,5 @@ function clickEvent(){
 }
 
 $('#all_cal').on("click",clickEvent)
+
 // https://songsong.dev/11
