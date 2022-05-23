@@ -1,0 +1,24 @@
+#wrap {
+    overflow: hidden;
+    min-width: 800px;
+    height: 100vh;
+}
+.weather{
+    height: 40vh;
+    background-color: bisque;
+    text-align: center;
+}
+
+.CurrIcon, .CurrTemp{
+    display: inline-block;
+    font-size: 1.375rem;
+    text-align: center;
+}
+.CurrIcon{
+    margin-right: 2px;
+}
+.City{
+    font-size: 0.938rem;
+    text-align: center;
+}
+
