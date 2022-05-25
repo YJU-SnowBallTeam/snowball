@@ -63,7 +63,7 @@ app.get('/schedule',(req,res)=>{
 
 app.get('/map',(req,res)=>{
   return res.end(fs.readFileSync('views/MapPage/MapPage.html'))
-})
+})/* 건들지 말것 */
 
 
 app.use((req, res, next) => {
