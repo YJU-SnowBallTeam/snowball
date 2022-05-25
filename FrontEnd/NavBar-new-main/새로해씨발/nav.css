@@ -10,7 +10,7 @@ nav{
 }
 nav ul{
     width: 100%;
-    background-color: rgba(44, 42, 39, 0.983);
+    background-color: black;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -101,9 +101,8 @@ nav ul li{
 
 .table {
     margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw;
+    text-align: center;
+    width: 70vw !important;
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
