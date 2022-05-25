@@ -113,10 +113,10 @@ function clickEvent(){
         var get12 = $(this).attr('value'); 
         console.log(get12);
         formTag.innerHTML = `
-        <div id = "formtag">
+        <div>
         <form>
         <div style= "display : inline-block; margin-bottom : 10px">${get12}일의 일정은?</div>
-        <table id="time">
+        <table id="time" style ="position: relative;">
                 <td>시간</td>
                 <td>무엇을 하실건가요?<br /></td>
                 <tr>
@@ -218,10 +218,13 @@ function clickEvent(){
         $('#time').fadeIn(500);
         formTag.style.transform = `translateY(-70vh)`
         formTag.style.transition = `1.5s ease-out`    
+        
+        // formTag.style.width = '100%'
+        formTag.style.width = '40vw'
+        
         formTag.style.height = "400px"
-        formTag.style.Left = "5vh"
-        formTag.style.marginTop = "5vh"
         formTag.style.display = "block"
+        
     }, 500);
     
 }
