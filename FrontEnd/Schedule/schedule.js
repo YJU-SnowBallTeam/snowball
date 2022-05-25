@@ -95,7 +95,7 @@ const Daycur = document.querySelector('.day.current');
 const allCal = document.querySelector('#all_cal')
 const time = document.querySelector('#time')
 const timeDiv = document.querySelector('#timeDiv')
-
+const formTag = document.querySelector('#formtag')
 $('.day').click(function(){ 
 
     var get12 = $(this).attr('value'); 
@@ -112,10 +112,11 @@ function clickEvent(){
     $('.day').click(function(){ 
         var get12 = $(this).attr('value'); 
         console.log(get12);
-        time.innerHTML = `<div style= "display : inline-block; transition : 1s ease-out; margin-bottom : 10px">${get12}일의 일정은?</div>
+        formTag.innerHTML = `
         <div id = "formtag">
         <form>
-            <table id="time">
+        <div style= "display : inline-block; margin-bottom : 10px">${get12}일의 일정은?</div>
+        <table id="time">
                 <td>시간</td>
                 <td>무엇을 하실건가요?<br /></td>
                 <tr>
@@ -215,11 +216,12 @@ function clickEvent(){
         })
     setTimeout(() => {
         $('#time').fadeIn(500);
-        time.style.transform = `translateY(-70vh)`
-        time.style.transition = `1.5s ease-out`    
-        time.style.height = "400px"
-        time.style.marginTop = "100px"
-        time.style.display = "block"
+        formTag.style.transform = `translateY(-70vh)`
+        formTag.style.transition = `1.5s ease-out`    
+        formTag.style.height = "400px"
+        formTag.style.Left = "5vh"
+        formTag.style.marginTop = "5vh"
+        formTag.style.display = "block"
     }, 500);
     
 }
