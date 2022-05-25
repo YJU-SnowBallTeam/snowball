@@ -5,7 +5,10 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const path = require('path');
 const nunjucks = require('nunjucks');
-
+const cons = require('consolidate')
+const exphbs  = require('express3-handlebars')
+const hbs = require('handlebars')
+var fs = require('fs')
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
@@ -21,6 +24,8 @@ app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname,'public')));
 
 console.log(__dirname)
+
+// app.engine('hbs', cons.hbs);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,6 +44,7 @@ app.set('view engine','html')
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
+
 app.get('/login',(req,res)=>{
   return res.render('login/login')
 })
@@ -54,8 +60,9 @@ app.get('/register',(req,res)=>{
 app.get('/schedule',(req,res)=>{
   return res.render('Schedule/schedule')
 })
+
 app.get('/map',(req,res)=>{
-  return res.render('MapFile/MapPage')
+  return res.end(fs.readFileSync('views/MapPage/MapPage.html'))
 })
 
 
