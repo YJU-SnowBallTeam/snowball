@@ -85,9 +85,12 @@ const ND_DEFAULT_POI_MIN_ZOOM = 18;
 const ND_MARKER_ICONS_BY_TYPE = {
   // Full list of icons can be found at https://fonts.google.com/icons
   '_default': 'circle',
-  'park': 'park',
+  'restaurant': 'restaurant',
+  'cafe': 'local_cafe',
+  'movie_theater': 'theaters',
   'museum': 'museum',
-  'shopping_mall': 'local_mall',
+  'bowling_alley': 'circle',
+  'tourist_attraction': 'local_see',
 };
 
 /**
@@ -110,8 +113,6 @@ function NeighborhoodDiscovery(configuration) {
   // Initialize additional capabilities ----------------------------------
 
   initializeSearchInput();
-  initializeDistanceMatrix();
-  initializeDirections();
 
   // Initializer function definitions ------------------------------------
 
@@ -165,12 +166,6 @@ function NeighborhoodDiscovery(configuration) {
         },
       });
     };
-
-    // Add marker at the center location (if specified).
-    if (configuration.centerMarker) {
-      drawMarker('Home', widget.center,
-                 '#1A73E8', '#185ABC', configuration.centerMarker.icon);
-    }
 
     // Add marker for the specified Place object.
     widget.addPlaceMarker = function(place) {
@@ -349,7 +344,6 @@ function NeighborhoodDiscovery(configuration) {
         backButtonEl.addEventListener('click', () => {
           hideElement(detailsPanelEl, prevFocusEl);
           selectedPlaceId = undefined;
-          widget.updateDirections();
           widget.selectedPlaceMarker.setMap(null);
         });
         detailsPanelEl.querySelectorAll('.photo').forEach((photoEl, i) => {
@@ -372,8 +366,6 @@ function NeighborhoodDiscovery(configuration) {
           widget.map.panTo(place.coords);
         }
         showDetailsPanel(place);
-        widget.fetchDuration(place, showDetailsPanel);
-        widget.updateDirections(place);
       };
 
       widget.fetchPlaceDetails(placeId, [
@@ -473,64 +465,5 @@ function NeighborhoodDiscovery(configuration) {
       widget.selectPlaceById(place.place_id, /* panToMarker= */ true);
       searchInputEl.value = '';
     });
-  }
-
-  /** Initializes Distance Matrix service for the widget. */
-  function initializeDistanceMatrix() {
-    const distanceMatrixService = new google.maps.DistanceMatrixService();
-
-    // Annotate travel times from the centered location to the specified place.
-    widget.fetchDuration = function(place, callback) {
-      if (!widget.center || !place || !place.coords || place.duration) return;
-      const request = {
-        origins: [widget.center],
-        destinations: [place.coords],
-        travelMode: google.maps.TravelMode.DRIVING,
-      };
-      distanceMatrixService.getDistanceMatrix(request, function(result, status) {
-        if (status === google.maps.DistanceMatrixStatus.OK) {
-          const trip = result.rows[0].elements[0];
-          if (trip.status === google.maps.DistanceMatrixElementStatus.OK) {
-            place.duration = trip.duration;
-            callback(place);
-          }
-        }
-      });
-    };
-  }
-
-  /** Initializes Directions service for the widget. */
-  function initializeDirections() {
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer({
-      suppressMarkers: true,
-      preserveViewport: true,
-    });
-
-    // Update directions from the centered location to specified place.
-    widget.updateDirections = function(place) {
-      if (!widget.center || !place || !place.coords) {
-        directionsRenderer.setMap(null);
-        return;
-      }
-      // Use existing results if available.
-      if (place.directions) {
-        directionsRenderer.setMap(widget.map);
-        directionsRenderer.setDirections(place.directions);
-        return;
-      }
-      const request = {
-        origin: widget.center,
-        destination: place.coords,
-        travelMode: google.maps.TravelMode.DRIVING,
-      };
-      directionsService.route(request, function(result, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-          place.directions = result;
-          directionsRenderer.setMap(widget.map);
-          directionsRenderer.setDirections(result);
-        }
-      });
-    };
   }
 }
