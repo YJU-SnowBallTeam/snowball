@@ -54,7 +54,9 @@ app.get('/register',(req,res)=>{
 app.get('/schedule',(req,res)=>{
   return res.render('Schedule/schedule')
 })
-
+app.get('/map',(req,res)=>{
+  return res.render('MapFile/MapPage')
+})
 
 
 app.use((req, res, next) => {

@@ -1,5 +1,6 @@
 const { User } = require('../models'); // 모델명으로 불러옴
 User.create({
+    id : 3,
   name: '이동현',
   age: 24,
   married: false,
