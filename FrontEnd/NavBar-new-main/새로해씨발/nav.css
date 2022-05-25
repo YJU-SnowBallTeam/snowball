@@ -18,19 +18,6 @@ nav ul{
 nav ul li{
     display: inline-block;
 }
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-a img{
-    width: 24px;
-    height: 24px;
-    padding-bottom: 2px;
-}
-div.navbar__logo{
-    float: left; 
-}
-
 .home{
     background-color: darkorange;
     width: 100px;
@@ -44,7 +31,7 @@ div.navbar__logo{
     color: white;
     padding: 16px 16px;
 }
-.dropdown{
+.dropdown1{
     position: relative;
     
 }
@@ -58,7 +45,7 @@ div.navbar__logo{
     .columm{
         vertical-align: middle;
     }
-    /* .dropdown{
+    /* .dropdown1{
         display: none;
     } */
 
@@ -70,48 +57,69 @@ div.navbar__logo{
         display: none;
     }
 }
-.dropdown-menu{
+.dropdown1-menu{
     color: white;
     padding: 16px;
     font-size: 16px;
     cursor: pointer;
 }
-.dropdown-content{
+.dropdown1-content{
     position: absolute;
     background-color: #f9f9f9;
     min-height: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     display: none;
 }
-.dropdown-content a{
+.dropdown1-content a{
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown-menu:hover:not(.home){
+.dropdown1-menu:hover:not(.home){
     background-color: darkorange;
     color: white;
 }
 
-.dropdown:hover .dropdown-content{
+.dropdown1:hover .dropdown1-content{
     width: 100%;
     display: block;
 }
-.dropdown-content a:hover{ background-color: #f1f1f1;}
+.dropdown1-content a:hover{ background-color: #f1f1f1;}
 
-#img {
-    background-image: url('https://a.cdn-hotels.com/gdcs/production85/d317/8cc5e5c5-323d-4f7b-9531-67eaf66e72b0.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 1;
-    height: 100vh;
-    margin: 0 auto;
-}
 
 .navbar__toggleBtn {
     display: none;
     font-size: 24px;
     color: #f1f1f1 !important;
+}
+.navbar__logo1{
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.table {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.table td a{
+    color: black;
+}
+#tbody{
+    font-size: 10px;
+}
+#undernav{
+       float: left;
+    overflow: hidden;
+    justify-content: center;
+    border-bottom:1px solid #ccc ;
 }
