@@ -1,25 +1,26 @@
 {
-  "name": "learn-express",
-  "version": "0.0.0",
-  "private": true,
+  "name": "learn-sequelize",
+  "version": "0.0.1",
+  "description": "시퀄라이즈를 배우자",
+  "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
   },
   "dependencies": {
-    "consolidate": "^0.16.0",
-    "cookie-parser": "^1.4.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.1",
-    "express3-handlebars": "^0.5.2",
-    "handlebars": "^4.7.7",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "install": "^0.13.0",
     "morgan": "^1.10.0",
-    "myapp": "^0.0.0-1",
+    "mysql2": "^2.3.3",
     "nunjucks": "^3.2.3",
-    "uglify-js": "^3.15.5"
+    "sequelize": "^6.20.0",
+    "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.16",
+    "sequelize-sql": "^0.0.6"
   }
 }
