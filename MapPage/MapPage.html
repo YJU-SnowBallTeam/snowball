@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=weather&sensor=false"></script>
     <script src="MapPage.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <title>Document</title>
+    <title>후쿠오카 지도</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <script>
@@ -483,6 +484,7 @@
                 widget.selectPlaceById(place.place_id, /* panToMarker= */ true);
                 searchInputEl.value = '';
             });
+
         }
     }
 </script>
@@ -531,6 +533,24 @@
         new NeighborhoodDiscovery(CONFIGURATION);
     }
 </script>
+<!--<script>-->
+<!--    // var weatherLayer = new google.maps.weather.WeatherLayer({-->
+<!--    //     temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT-->
+<!--    // });-->
+<!--    // weatherLayer.setMap(map);-->
+<!--    //-->
+<!--    // var cloudLayer = new google.maps.weather.CloudLayer();-->
+<!--    // cloudLayer.setMap(map);-->
+<!--    var mapOptions = {-->
+<!--        zoom: 13,-->
+<!--        center: new google.maps.LatLng(51.5,-0.11)-->
+<!--    }-->
+
+<!--    var map = new google.maps.Map(document.getElementById("map"), mapOptions);-->
+
+<!--    var transitLayer = new google.maps.TransitLayer();-->
+<!--    transitLayer.setMap(map);-->
+<!--</script>-->
 <script id="nd-place-results-tmpl" type="text/x-handlebars-template">
     {{#each places}}
         <li class="place-result">
@@ -740,6 +760,12 @@
                             <img src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="search"/>
                         </button>
                     </div>
+
+                    <div class="weatherShow">
+                        <h5>현재 후쿠오카의 날씨는</h5>
+                        <span class="weatherInfo"></span>
+                        <img class="weatherIcon">
+                    </div>
                 </header>
                 <div class="results">
                     <ul class="place-results-list"></ul>
@@ -825,4 +851,5 @@
         // })
     </script>
 </body>
+<script src="Weather.js"></script>
 </html>

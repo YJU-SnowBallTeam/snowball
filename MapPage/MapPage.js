@@ -9,3 +9,4 @@ toggleBtn.addEventListener('click', () => {
 toggleBtn.addEventListener('mouseover', () => {
     menu.classList.toggle();
 })
+
