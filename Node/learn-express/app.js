@@ -9,6 +9,7 @@ var fs = require('fs')
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
+const router = express.Router();
 
 // 시퀄라이즈 부분
 const { sequelize } = require('./models')
@@ -27,6 +28,7 @@ nunjucks.configure('views', {
   express: app,
   watch: true,
 });
+
 
 
 sequelize.sync({ force: false })
@@ -49,8 +51,10 @@ app.use(session({
   name: 'session-cookie',
 }));
 app.set('view engine','html')
+
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+// app.get('/user','')
 
 
 app.get('/login',(req,res)=>{
@@ -79,12 +83,12 @@ app.use((req, res, next) => {
   next(error);
 });
 
-app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
-  res.status(err.status || 500);
-  res.render('error');
-});
+// app.use((err, req, res, next) => {
+//   res.locals.message = err.message;
+//   res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
 
 

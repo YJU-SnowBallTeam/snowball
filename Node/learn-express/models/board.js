@@ -24,7 +24,7 @@ module.exports = class Board extends Sequelize.Model {
                 allowNull: false,
                 defaultValue: Sequelize.NOW,
             },
-            id: {
+            boarder: {
                 type: Sequelize.STRING(30),
                 // foreignKey: 'id', 관계 표시에 표시함
                 allowNull: false,

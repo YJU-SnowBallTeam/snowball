@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = class Professor extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      id: {
+      proffesorId: {
         type: Sequelize.STRING(30),
         primaryKey : true,
         allowNull : false,

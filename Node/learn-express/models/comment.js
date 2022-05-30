@@ -20,7 +20,7 @@ module.exports = class Comment extends Sequelize.Model {
                 defaultValue: Sequelize.NOW,
                 allowNull: false,
             },
-            id: {
+            commenter: {
                 type: Sequelize.STRING(30),
                 // foreignKey: 'id', 관계 표시에 표시함
                 allowNull: false,

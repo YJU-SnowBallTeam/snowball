@@ -22,8 +22,8 @@ module.exports = class User extends Sequelize.Model {
         allowNull: false,
         unique : true,
       },
-      grade: {
-        type: Sequelize.INTEGER,
+      grade: {/* 등급 */
+        type: Sequelize.STRING(20),
         allowNull: false,
       },
       email: {
@@ -31,8 +31,8 @@ module.exports = class User extends Sequelize.Model {
         allowNull: false,
         unique : true,
       },
-      class: {
-        type: Sequelize.STRING(10),
+      yjuclass: {
+        type: Sequelize.STRING(20),
         allowNull: false,
       },
       github: {
@@ -62,7 +62,10 @@ module.exports = class User extends Sequelize.Model {
   }
 
   static associate(db) {
-    // db.Comment.hasMany(db.notice, { foreignKey: 'id', targetKey: 'id' });
-    // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
+    db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
+    db.User.hasMany(db.Board, { foreignKey: 'boarder', sourceKey: 'id' });
+    db.User.hasMany(db.Notice, { foreignKey : 'noticer',sourceKey:'id' });
+    db.User.hasMany(db.Professor, { foreignKey: 'professorId', sourceKey : 'id' } );
+  
   }
 };

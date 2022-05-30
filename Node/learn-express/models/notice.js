@@ -19,7 +19,7 @@ module.exports = class Notice extends Sequelize.Model {
       type: Sequelize.STRING(1000),
         allowNull: false,
     },
-    id: {
+    noticer: {
       type: Sequelize.STRING(30),
         // foreignKey: 'id', 관계 표시에 표시함
         allowNull: false,
