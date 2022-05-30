@@ -1,3 +1,4 @@
+console.log(document.getElementById('user-form'));
 document.getElementById('user-form').
 addEventListener('submit', async (e) => {
     e.preventDefault();
