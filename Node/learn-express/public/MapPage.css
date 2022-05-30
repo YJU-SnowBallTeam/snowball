@@ -130,14 +130,14 @@ nav ul li{
 
 html{
     height: 96%;
-    margin-top: 4%;
+    margin-top: 3%;
     padding: 0%;
 
 }
 
 body {
     height: 96%;
-    margin-top: 4%;
+    margin-top: 3%;
     padding: 0%;
     overflow: hidden;
 }
@@ -257,7 +257,7 @@ body {
     font-size: 1em;
     height: 2.2em;
     padding: 0 2.5em 0 1em;
-    width: 100%;
+    width: 90%;
 }
 
 .neighborhood-discovery .search-input button {
@@ -459,4 +459,24 @@ body {
 .neighborhood-discovery .photo-modal .photo-attrs {
     font-size: 0.8em;
     margin-top: 0.3em;
+}
+
+.weatherShow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weatherShow * {
+    margin-top: 10px;
+    color: #000000;
+}
+
+.weatherShow h5 {
+    font-size: 0.9em;
+}
+.weatherInfo {
+    font-size: 0.9em;
 }
