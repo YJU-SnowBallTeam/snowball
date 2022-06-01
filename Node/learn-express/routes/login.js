@@ -1,36 +1,40 @@
 const express = require('express');
-const User = require("../models/user")
+const Login = require("../models/login")
 
 const router = express.Router();
 
-router.router('/login')
+
+router.route('/')
 .get( async(req,res,next) =>{
     try {
-        const login = await User.findAll();
-        res.json(users);
+        const login = await Login.findAll();
+        res.json(login);
+
     } catch (error) {
         console.error(error);
         next(error)
     }
 
-}).post(
+})
+.post(
     async (req, res, next) => {
         try {
-          const user = await User.create({
+          const login = await Login.create({
             id: req.body.id,
             passwd: req.body.passwd,
-            pwcheck: req.body.pwcheck,
-            name: req.body.name,
-            tel: req.body.tel,
-            email: req.body.email,
-            grade : req.body.grade,
-            yjuclass : req.body.yjuclass,
           });
-          console.log("PostUser : ",user);
-          res.status(201).json(user);
+          console.log("PostUser : ",login);
+          res.status(201).json(login);
         } catch (err) {
           console.error(err);
           next(err);
         }
     }
 )
+
+router.get('/',(req,res) =>{
+    console.log(req.body);
+})
+
+
+module.exports = router;

@@ -9,7 +9,10 @@ var fs = require('fs')
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
-const router = express.Router();
+const loginRouter = require('./routes/login');
+
+
+
 
 // 시퀄라이즈 부분
 const { sequelize } = require('./models')
@@ -52,26 +55,26 @@ app.use(session({
 }));
 app.set('view engine','html')
 
+
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/login', loginRouter);
 // app.get('/user','')
 
 
-app.get('/login',(req,res)=>{
-  return res.render('login/login')
-})
-app.get('/Community',(req,res)=>{
-  return res.render('Community/Community')
-})
-app.get('/Schedule',(req,res)=>{
-  return res.render('Schedule/Schedule')
-})
-app.get('/register',(req,res)=>{
-  return res.render('Register/signup')
-})
-app.get('/schedule',(req,res)=>{
-  return res.render('Schedule/schedule')
-})
+
+// app.get('/Community',(req,res)=>{
+//   return res.render('Community/Community')
+// })
+// app.get('/Schedule',(req,res)=>{
+//   return res.render('Schedule/Schedule')
+// })
+// app.get('/register',(req,res)=>{
+//   return res.render('Register/signup')
+// })
+// app.get('/schedule',(req,res)=>{
+//   return res.render('Schedule/schedule')
+// })
 
 app.get('/map',(req,res)=>{
   return res.end(fs.readFileSync('views/MapPage/MapPage.html'))

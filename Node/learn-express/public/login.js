@@ -1,6 +1,3 @@
-
-
-console.log(document.querySelector('#login-from'));
 document.getElementById('login-tag').
 addEventListener('submit', async (e) => {
     e.preventDefault();

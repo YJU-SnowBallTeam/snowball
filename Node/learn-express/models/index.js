@@ -5,6 +5,7 @@ const Comment = require('./comment');
 const Notice = require('./notice')
 const Board = require('./board')
 const Professor = require('./professor')
+const Login = require('./login')
 
 
 const env = process.env.NODE_ENV || 'development';
@@ -28,6 +29,7 @@ Comment.init(sequelize);
 Notice.init(sequelize);
 Board.init(sequelize);
 Professor.init(sequelize);
+Login.init(sequelize);
 
 // User.associate(db);
 // Comment.associate(db);
