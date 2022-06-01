@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "codbs950927",
     "database": "SnowBallTeam",
     "host": "localhost",
     "dialect": "mysql"
