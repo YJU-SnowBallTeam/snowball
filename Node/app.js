@@ -12,7 +12,7 @@ const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
 
 
-
+const abc = 1;
 
 // 시퀄라이즈 부분
 const { sequelize } = require('./models')
