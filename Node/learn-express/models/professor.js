@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = class Professor extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      proffesorId: {
+      professorId: {
         type: Sequelize.STRING(30),
         primaryKey : true,
         allowNull : false,
@@ -36,6 +36,7 @@ module.exports = class Professor extends Sequelize.Model {
   static associate(db) {
     // db.Comment.hasMany(db.notice, { foreignKey: 'id', targetKey: 'id' });
     // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
-    db.Professor.hasOne(db.User, { foreignKey: 'ProfessorId', targetKey: 'id' });
+
+    db.Professor.belongsTo(db.User, { foreignKey: 'professorId', targetKey: 'id' });
   }
 };

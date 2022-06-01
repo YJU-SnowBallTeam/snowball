@@ -44,5 +44,6 @@ module.exports = class Notice extends Sequelize.Model {
   static associate(db) {
     // db.Comment.hasMany(db.notice, { foreignKey: 'id', targetKey: 'id' });
     // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
+    db.Notice.belongsTo(db.User, { foreignKey: 'noticer', targetKey: 'id' });
   }
 };

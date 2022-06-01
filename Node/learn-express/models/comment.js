@@ -45,5 +45,6 @@ module.exports = class Comment extends Sequelize.Model {
         // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
 			
 			db.Comment.belongsTo(db.User, { foreignKey: 'commenter', targetKey: 'id' });
+			db.Comment.belongsTo(db.Board, { foreignKey: 'post_id', targetKey: 'post_id' });
     }
 };
