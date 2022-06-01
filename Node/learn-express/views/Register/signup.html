@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="signup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <center>
+        <h3>Sign Up</h3>
+        <form id = 'user-form'>
+            <table>
+                <div class="int-area">
+                    <input type="text" name="id" id="id" autocomplete="off" required>
+                    <label for="id">ID</label>
+                </div>
+                <div class="int-area">
+                    <input type="text" name="passwd" id="passwd" autocomplete="off" required>
+                    <label for="pw">PW</label>
+                </div>
+                <div class="int-area">
+                    <input type="text" name="pwcheck" id="pwcheck" autocomplete="off" required>
+                    <label for="pwcheck">PW Check</label>
+                </div>
+                <div class="int-area">
+                    <input type="text" name="name" id="name" autocomplete="off" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="int-area">
+                    <input type="text" name="tel" id="tel   " autocomplete="off" required>
+                    <label for="name">TEL</label>
+                </div>
+                <div class="int-area">
+                    <input type="text" name="grade" id="grade" autocomplete="off" required>
+                    <label for="name">grade</label>
+                </div>
+                <div class="int-area" id="int2-area" >
+                    <input type="text" name="email" id="email" placeholder=""autocomplete="off" required>
+                    <label for="name">E-mail</label>
+                </div>
+                <div class="int-area">
+                    <select id="area2">
+                        <option value = 'class'>'class'</option>
+                        <option value = 'class1'>'WD-J'</option>
+                        <option value = 'class2'>'CP-J'</option>
+                    </select>
+            </table>
+            <div class="btn-area">
+                <button id="btn" type="submit">Regist</button>
+            </div>
+        </form>
+    </center>
+</body>
+<script src="register.js"></script>
+</html>

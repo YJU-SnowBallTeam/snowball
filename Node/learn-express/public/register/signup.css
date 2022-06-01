@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.underline {
+    border-left-width:0;
+    border-right-width:0;
+    border-top-width:0;
+    border-bottom-width:1;
+    border-bottom: 1px solid black;
+}
+.btn-area {
+    margin-top: 30px;
+  }
+  
+.btn-area button {
+    width: 30%;
+    height: 50px;
+    margin: 0px 10px;
+    color: #fff;
+    background: #166caa;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.int-area {
+    width: 400px;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .int-area:first-child {
+    margin-top: 0;
+  }
+  
+  .int-area input {
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none;
+  }
+  .int-area select{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none;
+  }
+  .int-area label {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 18px;
+    transition: top 0.5s ease;
+  }
+  /* #class2{
+    float: left;
+    width: 50%;
+    padding: 20px 10px 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none;   
+  } */
+ 
+  #class{
+    width: 50%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none;   
+  }
+  .int-area label.warning {
+    color: red !important;
+    animation: warning 0.3s ease;
+    animation-iteration-count: 3;
+  }
+  .int-area input:focus + label,
+  .int-area input:valid + label {
+    top: -2px;
+    font-size: 13px;
+    color: #166caa;
+  }
+  
