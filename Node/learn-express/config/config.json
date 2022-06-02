@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "codbs950927",
+    "password": "mysql1234",
     "database": "SnowBallTeam",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
