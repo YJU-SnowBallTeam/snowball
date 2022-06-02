@@ -4,16 +4,16 @@ const User = require('../models/user')
 const router = express.Router();
 
 router.route('/')
-  .get(async( req, res, next) =>{
-    try {
-      const users = await User.findAll();
-      
-      res.json(users);
-    } catch (err) {
-      console.error(err);
-      next(err);
-    }
-  })
+.get(async( req, res, next) =>{
+  try {
+    const users = await User.findAll();
+    
+    res.json(users);
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+})
   .post(async (req, res, next) => {
     try {
       const user = await User.create({
@@ -26,9 +26,10 @@ router.route('/')
         grade : req.body.grade,
         yjuclass : req.body.yjuclass,
       });
-      console.log("PostUser : ",user);
-      await res.status(201).json(user);
-    } catch (err) {
+      console.log("등록된 유저명 : " ,user);
+        await res.status(201).json(user);
+      } catch (err) {
+      res.send(false);
       console.error(err);
       next(err);
     }

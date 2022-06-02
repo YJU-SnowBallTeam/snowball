@@ -1,6 +1,6 @@
 const express = require('express');
 const {User} = require('../models');
-const Login = require("../models/login")
+
 
 const router = express.Router();
 
@@ -8,18 +8,6 @@ const router = express.Router();
 
 
 router.route('/')
-.get( async(req,res,next) =>{
-    try {
-        const login = await Login.findAll();
-        res.json(login);
-        console.log(login);
-
-    } catch (error) {
-        console.error(error);
-        next(error)
-    }
-
-})
 .post(
     async (req, res, next) => {
         try {
@@ -33,6 +21,7 @@ router.route('/')
               id: req.body.id,
             } 
           });
+          console.log("유저는 : ",user);
           if(user){
             if(user.passwd == req.body.passwd){
               await res.status(201).json(true)

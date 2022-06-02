@@ -38,6 +38,9 @@ router.get('/gongji/writePage',(req,res) =>{
 })
 
 router.get('/profile',(req,res) =>{
-   res.render("profile/profile")
+   res.render("profile/profile",{
+      name : req.body.name,
+      class : req.body.class
+   })
 })
 module.exports = router;
