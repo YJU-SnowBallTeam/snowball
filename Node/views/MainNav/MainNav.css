@@ -114,3 +114,13 @@ nav ul li{
 .table td a{
     color: black;
 }
+
+#img {
+    background-image: url('https://a.cdn-hotels.com/gdcs/production85/d317/8cc5e5c5-323d-4f7b-9531-67eaf66e72b0.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    height: 100vh;
+    margin: 0 auto;
+}
