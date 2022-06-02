@@ -13,6 +13,7 @@ addEventListener('submit', async (e) => {
     .then((res)=>{
         return res.data;
     });
+    console.log(result);
       if(result == true){
         console.log("로그인 성공, 메인 페이지로 이동");
         location.href = '/';
