@@ -7,7 +7,8 @@ module.exports = class User extends Sequelize.Model {
         type: Sequelize.STRING(30),
         primaryKey : true,
         allowNull : false,
-        unique : true,
+        unique: true,
+        comment: "user id",
       },
       passwd: {
         type: Sequelize.STRING(30),
@@ -62,10 +63,15 @@ module.exports = class User extends Sequelize.Model {
   }
 
   static associate(db) {
+    // db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
+    // db.User.hasMany(db.Board, { foreignKey: 'boarder', sourceKey: 'id' });
+    // db.User.hasMany(db.Notice, { foreignKey : 'noticer',sourceKey:'id' });
+    // db.User.hasMany(db.Professor, { foreignKey: 'professorId', sourceKey : 'id' });
+  
     db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
     db.User.hasMany(db.Board, { foreignKey: 'boarder', sourceKey: 'id' });
-    db.User.hasMany(db.Notice, { foreignKey : 'noticer',sourceKey:'id' });
-    db.User.hasMany(db.Professor, { foreignKey: 'professorId', sourceKey : 'id' } );
-  
+    db.User.hasMany(db.Notice, {foreignKey: 'noticer', sourceKey: 'id' });
+    db.User.hasOne(db.Professor, { foreignKey: 'professorId', sourceKey: 'id' });
+
   }
 };

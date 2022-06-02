@@ -19,7 +19,6 @@ db.Sequelize = Sequelize;
 
 db.User = User;
 db.Comment = Comment;
-
 db.Notice = Notice;
 db.Board = Board;
 db.Professor = Professor;
@@ -31,7 +30,11 @@ Board.init(sequelize);
 Professor.init(sequelize);
 Login.init(sequelize);
 
-// User.associate(db);
-// Comment.associate(db);
+User.associate(db);
+Comment.associate(db);
+Notice.associate(db);
+Board.associate(db);
+Professor.associate(db);
+Login.associate(db);
 
 module.exports = db;

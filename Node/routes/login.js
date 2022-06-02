@@ -1,8 +1,10 @@
 const express = require('express');
-const model = require('../models')
+const {User} = require('../models');
 const Login = require("../models/login")
 
 const router = express.Router();
+
+
 
 
 router.route('/')
@@ -21,18 +23,36 @@ router.route('/')
 .post(
     async (req, res, next) => {
         try {
-          let body = req.body;
-          let inputId = body.id;
-          let inputPassword = body.Password;
-          console.log("req:body = ",req.body);
-          console.log("body:id = ",body.id);
-          console.log("body:passwd = ",body.passwd);
+          console.log("받아온 바디 정보 : ",req.body);
+          console.log("받아온 요청 정보 : ",req.method);
+          // SELECT * FROM user 
+          // WHERE id = req.body.id
+          // AND pw = req.body.pw 
+          const user = await User.findOne({
+             where:{
+              id: req.body.id,
+            } 
+          });
+          if(user){
+            if(user.passwd == req.body.passwd){
+              await res.status(201).json(true)
+            // await res.redirect('/')
+            } else{
+              res.send("비밀번호가 틀렸습니다.");
+            }
+          }else{
+            res.send(false);
+          }
+
         } catch (err) {
           console.error(err);
           next(err);
         }
     }
 )
+
+
+
 
 router.post("/user", async (req,res) =>{
   let result = await model.User.findOne({
@@ -41,6 +61,7 @@ router.post("/user", async (req,res) =>{
       passwd : body.passwd
     }
   })
+  console.log(result);
 })
 
 router.get('/',(req,res) =>{

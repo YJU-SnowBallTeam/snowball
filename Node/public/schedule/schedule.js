@@ -182,11 +182,7 @@ function clickEvent(){
         $('#time').fadeIn(500);
         formTag.style.transform = `translateY(-45vh)`
         formTag.style.transition = `1.5s ease-out`    
-        
-        // formTag.style.width = '100%'
         formTag.style.width = '40vw'
-        
-        formTag.style.height = "400px"
         formTag.style.display = "block"
         
     }, 500);

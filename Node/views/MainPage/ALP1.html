@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="gongji.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>{{title}}</title>
+    <link rel="stylesheet"  href="nav.css" ></link>
 </head>
 <body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="폰트어썸 본인 CDN"
+    crossorigin="anonymous">
     <nav style="text-align : center; justify-content: center; background-color: rgba(44, 42, 39, 0.983); z-index: 3">
         <div class = "columm1" style="margin: auto;">
         <ul id = "ultag">
@@ -21,15 +23,15 @@
                     <div style="display: inline-block;">
                     </div>
                 </li>
-                <a href="/" style="margin-top: 12px; float: left; color: blue; font-size: 20px; text-decoration: none; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">YungJin</a>
+                <a href="/" style="margin-top: 12px; float: left; color: rgba(58, 133, 162, 0.983); font-size: 20px; text-decoration: none; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">YeongJin</a>
             <li class="dropdown1">
                 </a>
                 <div class="dropdown1-menu">Fukuoka</div>
                 <div class="dropdown1-content">
-                  <a href="/map">지도</a>
-                    <a href="#"></a>
+                    <a href="#">날씨</a>
                     <a href="#">연혁</a>
-                    <a href="#"></a>
+                    <a href="#">관광지</a>
+                    <a href="/map">지도</a>
                 </div>
             </li>
             <li class="dropdown1">
@@ -59,113 +61,28 @@
                     <a href="#"></a>
                 </div>
             </li>
-            <li class="home"><a href="/login">Log In</a></li>
+            {% include "./ALP.html" %}
         </ul>
     </div>
     </nav>
-    <h1 style="text-align: center;">공지사항</h1>
-    <div class="container">
-        <table class="table table-hover" >
-            <thead>
-              <tr>
-                <th scope="col" style="width: 10vw;">번호</th>
-                <th scope="col" style="width: 40vw;;">제목</th>
-                <th scope="col" style="width: 15vw;">글쓴이</th>
-                <th scope="col" style="width: 15vw">작성일</th>
-              </tr>
-            </thead>
-            <body>
-              <tr>
-                <th scope="row">1</th>
-                <td style="width: 40vw; text-align: left;">Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td style="width: 40vw; text-align: left;">Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td style="width: 40vw; text-align: left;">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <a class="btn btn-default pull-right" href="/gongji/writePage">글쓰기</a>
-            </body>
-          </table>
-    <div class="text-center">
-        <ul class="pagination">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-        </ul>
-    </div>
-    </div>
-    
+    <section>
+        <div id='img'></div>
+    </section>
+    <script>
+        const toggleBtn = document.querySelector('.fa-bars');
+        // const menu = document.querySelector('.navbar__menu');
+        
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            // sns.classList.toggle('active');
+        });
+        // toggleBtn.addEventListener('mouseover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+        // toggleBtn.addEventListener('hover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+    </script>
 </body>
 </html>

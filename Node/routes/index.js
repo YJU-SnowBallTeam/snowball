@@ -8,7 +8,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login',(req,res) =>{
-  res.render('login/login.html',{title : 'Express'})
+   
+   // if(req.headers.cookie === undefined){
+   //    res.render('MainPage/MainPage.html')
+   // }else if(req.headers.cookies){
+   res.render('login/login.html',{title : 'Express'})
+// }
 })
 
 router.get('/Community',(req,res)=>{
@@ -30,5 +35,9 @@ router.get('/gongji',(req,res) =>{
 
 router.get('/gongji/writePage',(req,res) =>{
    res.render('writePage/writePage')
+})
+
+router.get('/profile',(req,res) =>{
+   res.render("profile/profile")
 })
 module.exports = router;
