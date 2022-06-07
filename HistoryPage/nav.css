@@ -22,11 +22,11 @@ a {
     text-decoration: none;
     color: var(--text-color);
 }
-a img{
-    width: 24px;
-    height: 24px;
-    padding-bottom: 2px;
-}
+/*a img{*/
+/*    width: 24px;*/
+/*    height: 24px;*/
+/*    padding-bottom: 2px;*/
+/*}*/
 div.navbar__logo{
     float: left; 
 }
@@ -100,16 +100,6 @@ div.navbar__logo{
 }
 .dropdown-content a:hover{ background-color: #f1f1f1;}
 
-#img {
-    background-image: url('https://a.cdn-hotels.com/gdcs/production85/d317/8cc5e5c5-323d-4f7b-9531-67eaf66e72b0.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 1;
-    height: 100vh;
-    margin: 0 auto;
-}
-
 .navbar__toggleBtn {
     display: none;
     font-size: 24px;
@@ -127,30 +117,23 @@ div.navbar__logo{
 
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
-html {
-    -webkit-print-color-adjust: exact;
-}
-* {
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact;
-}
 
 html,
-body {
+.NotionPage {
     margin: 0;
     padding: 0;
 }
 @media only screen {
-    body {
+    .NotionPage {
         margin: 2em auto;
         max-width: 900px;
         color: rgb(55, 53, 47);
     }
 }
 
-body {
+.NotionPage {
     line-height: 1.5;
-    white-space: pre-wrap;
+    white-space: normal;
 }
 
 a,
@@ -237,6 +220,10 @@ hr {
 }
 
 img {
+    max-width: 100%;
+}
+
+.gurodaimg {
     max-width: 100%;
 }
 
@@ -445,7 +432,7 @@ time {
     margin-right: 0.5em;
 }
 
-img.icon {
+img.fukuokaicon {
     border-radius: 3px;
 }
 
@@ -551,52 +538,6 @@ code {
     color: inherit;
 }
 
-blockquote {
-    font-size: 1.25em;
-    margin: 1em 0;
-    padding-left: 1em;
-    border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-    text-decoration: none;
-    max-height: 8em;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
-
-.bookmark-title {
-    font-size: 0.85em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 1.75em;
-    white-space: nowrap;
-}
-
-.bookmark-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.bookmark-info {
-    flex: 4 1 180px;
-    padding: 12px 14px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.bookmark-image {
-    width: 33%;
-    flex: 1 1 180px;
-    display: block;
-    position: relative;
-    object-fit: cover;
-    border-radius: 1px;
-}
-
 .bookmark-description {
     color: rgba(55, 53, 47, 0.6);
     font-size: 0.75em;
@@ -630,72 +571,7 @@ blockquote {
 .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
 .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-    color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-    color: rgba(120, 119, 116, 1);
-    fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-    color: rgba(159, 107, 83, 1);
-    fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-    color: rgba(217, 115, 13, 1);
-    fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-    color: rgba(203, 145, 47, 1);
-    fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-    color: rgba(68, 131, 97, 1);
-    fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-    color: rgba(51, 126, 169, 1);
-    fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-    color: rgba(144, 101, 176, 1);
-    fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-    color: rgba(193, 76, 138, 1);
-    fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-    color: rgba(212, 76, 71, 1);
-    fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-    background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-    background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-    background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-    background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-    background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-    background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-    background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-    background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-    background: rgba(253, 235, 236, 1);
-}
+
 .block-color-default {
     color: inherit;
     fill: inherit;
@@ -704,75 +580,6 @@ blockquote {
     color: rgba(120, 119, 116, 1);
     fill: rgba(120, 119, 116, 1);
 }
-.block-color-brown {
-    color: rgba(159, 107, 83, 1);
-    fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-    color: rgba(217, 115, 13, 1);
-    fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-    color: rgba(203, 145, 47, 1);
-    fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-    color: rgba(68, 131, 97, 1);
-    fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-    color: rgba(51, 126, 169, 1);
-    fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-    color: rgba(144, 101, 176, 1);
-    fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-    color: rgba(193, 76, 138, 1);
-    fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-    color: rgba(212, 76, 71, 1);
-    fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-    background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-    background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-    background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-    background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-    background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-    background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-    background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-    background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-    background: rgba(253, 235, 236, 1);
-}
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
 
 .checkbox {
     display: inline-flex;
