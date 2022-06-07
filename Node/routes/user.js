@@ -7,25 +7,26 @@ router.route('/')
 .get(async( req, res, next) =>{
   try {
     const users = await User.findAll();
-    
-    res.json(users);
+    console.log("Database에서 받아온 데이터 : ",users);
+    // res.send({loggedIn : true, loginData: req.session.loginData})
+    // res.json(users);
   } catch (err) {
     console.error(err);
     next(err);
   }
-})
+})/* 이 get요청은 어디로 갈까요? -> index.js로 가서 user라우터로 갑니다*/
   .post(async (req, res, next) => {
     try {
       const user = await User.create({
         id: req.body.id,
         passwd: req.body.passwd,
-        pwcheck: req.body.pwcheck,
         name: req.body.name,
         tel: req.body.tel,
         email: req.body.email,
         grade : req.body.grade,
         yjuclass : req.body.yjuclass,
       });
+      
       console.log("등록된 유저명 : " ,user);
         await res.status(201).json(user);
       } catch (err) {
@@ -34,13 +35,6 @@ router.route('/')
       next(err);
     }
   });  
-
-// GET /user 라우터
-router.get('/', (req, res) => {
-  console.log(req.body);
-});
-
-
-
+/* 이 post요청은 어디로 갈까요? ->  */
 
 module.exports = router;

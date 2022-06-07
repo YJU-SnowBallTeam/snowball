@@ -1,11 +1,58 @@
 const express = require('express');
-
+const { User } = require('../models');
+const axios = require('axios')
 const router = express.Router();
-
+let sex;
 // GET / 라우터
-router.get('/', (req, res) => {
-  res.render('MainPage/MainPage.html', { title: 'Express' });
-});
+router.route('/')
+.post(async (req,res) =>{
+   try {
+      console.log("받아온 바디 정보 : " ,req.body);
+      sex = req.body;
+      console.log(req.body.Islogined);
+      /* 이 정보를 get으로 보내야함. */
+
+      if(req.body.Islogined == true){
+         await res.render('Schedule/Schedule')
+      }else{
+         await res.render('MainPage/MainPage.html', { title: 'Express' });
+      }
+   } catch (error) {
+      
+   }
+})
+.get(async (req, res) => {
+   try {
+      // axios.post('/',(req,res)=> {
+      //    console.log("받아온 바디 정보 : " ,req.body);
+      //    const a = req.body;
+      //    console.log(req.body.Islogined);
+      // })
+
+      console.log("받아온 바디 정보2 : " ,sex);
+      const a = await req.body;
+      console.log("Get요청의 body:",a.Islogined );
+      // if(sex.Islogined == true){
+      //    await res.render('MainPage/MainPage.html')
+      //    console.log("sex");
+      // }else{
+      //    res.render('MainPage/MainPage.html', { title: 'Express' });
+      //    console.log("nosex");
+      // }
+      res.render('MainPage/MainPage.html', { title: 'Express' });
+   } catch (error) {
+      
+   }
+      
+   
+})
+// router.get('/', (req, res) => {
+//    res.render('MainPage/MainPage.html', { title: 'Express' });
+//  });
+
+router.get('/user', (req, res) => {
+   console.log(req.body);
+})
 
 router.get('/login',(req,res) =>{
    

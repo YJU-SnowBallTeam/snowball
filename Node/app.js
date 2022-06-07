@@ -51,7 +51,10 @@ app.use(session({
   name: 'session-cookie',
 }));
 app.set('view engine','html')
-
+nunjucks.configure('views', {
+  express: app,
+  watch: true,
+});
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
@@ -69,12 +72,12 @@ app.use((req, res, next) => {
 
 
 
-// app.use((err, req, res, next) => {
-//   res.locals.message = err.message;
-//   res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+app.use((err, req, res, next) => {
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 
 

@@ -24,10 +24,10 @@ addEventListener('submit', async (e) => {
       .then((res) =>{
         return res.data
       });
-      console.log(result);
+      console.log("user.js로 보낸 데이터",result);
       if(result){
         console.log("회원가입 성공");
-        // location.href = '/login';
+        location.href = '/login';
       }
       else{
         alert("회원가입실패")
