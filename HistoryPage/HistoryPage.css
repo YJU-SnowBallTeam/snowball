@@ -7,10 +7,11 @@ nav{
     left: 0;
     top: 0;
     text-align: center;
+    position: fixed;
 }
 nav ul{
     width: 100%;
-    background-color: rgba(44, 42, 39, 0.983);
+    background-color: black;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -18,19 +19,6 @@ nav ul{
 nav ul li{
     display: inline-block;
 }
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-/*a img{*/
-/*    width: 24px;*/
-/*    height: 24px;*/
-/*    padding-bottom: 2px;*/
-/*}*/
-div.navbar__logo{
-    float: left; 
-}
-
 .home{
     background-color: darkorange;
     width: 100px;
@@ -44,7 +32,7 @@ div.navbar__logo{
     color: white;
     padding: 16px 16px;
 }
-.dropdown{
+.dropdown1{
     position: relative;
     
 }
@@ -58,7 +46,7 @@ div.navbar__logo{
     .columm{
         vertical-align: middle;
     }
-    /* .dropdown{
+    /* .dropdown1{
         display: none;
     } */
 
@@ -70,58 +58,95 @@ div.navbar__logo{
         display: none;
     }
 }
-.dropdown-menu{
+.dropdown1-menu{
     color: white;
     padding: 16px;
     font-size: 16px;
     cursor: pointer;
 }
-.dropdown-content{
+.dropdown1-content{
     position: absolute;
     background-color: #f9f9f9;
     min-height: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     display: none;
 }
-.dropdown-content a{
+.dropdown1-content a{
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown-menu:hover:not(.home){
+.dropdown1-menu:hover:not(.home){
     background-color: darkorange;
     color: white;
 }
 
-.dropdown:hover .dropdown-content{
+.dropdown1:hover .dropdown1-content{
     width: 100%;
     display: block;
 }
-.dropdown-content a:hover{ background-color: #f1f1f1;}
+.dropdown1-content a:hover{ background-color: #f1f1f1;}
+
 
 .navbar__toggleBtn {
     display: none;
     font-size: 24px;
     color: #f1f1f1 !important;
 }
+.navbar__logo1{
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
 
+.table {
+    margin-top: 40px;
+    text-align: center;
+    width: 70vw !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.table td a{
+    color: black;
+}
 
+#img {
+    background-image: url('https://a.cdn-hotels.com/gdcs/production85/d317/8cc5e5c5-323d-4f7b-9531-67eaf66e72b0.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    height: 100vh;
+    margin: 0 auto;
+}
 
 
 /*NOTION*/
 
 
 
-
-
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
+
+
+.page-cover-image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    max-height: 30vh;
+}
+
 
 html,
 .NotionPage {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 @media only screen {
     .NotionPage {
@@ -161,21 +186,25 @@ h3 {
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0.75em;
+    color: white;
 }
 
 h1 {
     font-size: 1.875rem;
     margin-top: 1.875rem;
+    color: white;
 }
 
 h2 {
     font-size: 1.5rem;
     margin-top: 1.5rem;
+    color: white;
 }
 
 h3 {
     font-size: 1.25rem;
     margin-top: 1.25rem;
+    color: white;
 }
 
 .source {
@@ -217,6 +246,7 @@ hr {
     visibility: visible;
     border: none;
     border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    background-color: gray;
 }
 
 img {
@@ -452,12 +482,6 @@ img.fukuokaicon {
     text-align: center;
 }
 
-.page-cover-image {
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    max-height: 30vh;
-}
 
 .page-header-icon {
     font-size: 3rem;
@@ -482,6 +506,7 @@ img.fukuokaicon {
 
 p > .user {
     opacity: 0.5;
+    color: white;
 }
 
 td > .user,
@@ -498,6 +523,7 @@ input[type="checkbox"] {
 p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    color: white;
 }
 
 .image {
