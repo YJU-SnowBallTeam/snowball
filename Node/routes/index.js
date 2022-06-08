@@ -4,19 +4,21 @@ const axios = require('axios');
 const { Is } = require('nunjucks/src/nodes');
 const router = express.Router();
 
-let IsLogined = false
+let IsLogined = null;
 // GET / 라우터
 router.route('/')
 .post(async (req,res) =>{
    try {
-      // console.log("index.js 받아온 바디 정보 : " ,req.body.user);
-      if(req.body.user){
-      IsLogined = true
+      console.log("누구세요? ",req.body);
+      if(req.body){
+         console.log("if문 안의 req.body입니다 ",req.body);
+         IsLogined = req.body.user
       }
       console.log("index.js의 IsLogined",IsLogined)
       req.session.IsLogined = IsLogined /* 세션을 저장하는 코드 */
-      res.cookie("IsLogined",IsLogined)
-      return res.send(IsLogined)
+      console.log("2번째 누구세요" ,IsLogined);
+      console.log(req.session);
+      return res.send(req.session)
       // IsLogined를 login.js로 보냈음.
       
    } catch (error) {
@@ -25,18 +27,22 @@ router.route('/')
 })
 .get(async (req, res) => {
    try {
-         await res.render('MainPage/MainPage.html')
+      const user = await req.session.IsLogined
+      console.log("get 요청 : ",user);
+      await res.render('MainPage/ALP1.html' ,{ user })
    } catch (error) {
       console.error(error);
    }
 })
 
-router.get('/loginCheck',(req,res) =>{
-   if(req.session.IsLogined){
-      res.send({ loggedIn : true , loginData : req.session.loginData})
-   }else{
-      res.send({loggedIN : false})
-   }
+router.get('/logout',(req,res) =>{
+   IsLogined = null; 
+   res.redirect('/')
+})
+
+router.post('/loginCheck',(req,res) =>{
+   console.log(req.session)
+   return res.send('sex')
 })
 // router.get('/', (req, res) => {
 //    res.render('MainPage/MainPage.html', { title: 'Express' });

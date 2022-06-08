@@ -1,3 +1,5 @@
+
+
 document.getElementById('login-tag').
 addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ addEventListener('submit', async (e) => {
         
         console.log("IsLogined 데이터는 ",isLogined)
         if(isLogined.data){
-          await axios.post('/',{success : "success"})
+          await axios.post('/',{success: "success"})
           location.href = '/';
           console.log("로그인 성공");
 
