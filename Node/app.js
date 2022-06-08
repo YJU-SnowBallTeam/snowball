@@ -47,6 +47,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: false,
+    maxAge: 3000
   },
   name: 'session-cookie',
 }));
@@ -60,6 +61,8 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
 
+app.post('/')
+
 app.get('/map',(req,res)=>{
   return res.end(fs.readFileSync('views/MapPage/MapPage.html'))
 })/* 건들지 말것 */
@@ -69,6 +72,7 @@ app.use((req, res, next) => {
   error.status = 404;
   next(error);
 });
+
 
 
 
