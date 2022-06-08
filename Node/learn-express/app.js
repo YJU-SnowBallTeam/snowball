@@ -9,8 +9,11 @@ var fs = require('fs')
 dotenv.config();
 
 const indexRouter = require('./routes');
-const userRouter = require('./routes/user');
+// const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
+// const joinRouter = require('./routes/join');
+const communityRouter = require('./routes/postCommunity');
 
 
 
@@ -35,7 +38,7 @@ nunjucks.configure('views', {
 
 
 // force: true -> 강제로 DB UpDate
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
   .then(() => {
     console.log('데이터베이스 연결 성공');
   })
@@ -58,9 +61,11 @@ app.set('view engine','html')
 
 
 app.use('/', indexRouter);
-app.use('/user', userRouter);
-app.use('/login', loginRouter);
-// app.get('/user','')
+// app.use('/user', userRouter);
+// app.use('/login', loginRouter);
+app.use('/auth', authRouter);
+app.use('/community', communityRouter);
+// app.use('/join', joinRouter);
 
 
 

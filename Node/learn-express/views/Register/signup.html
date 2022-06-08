@@ -11,7 +11,7 @@
 <body>
     <center>
         <h3>Sign Up</h3>
-        <form id = 'user-form'>
+        <form id = 'user-form' action="/auth/join" method="get">
             <table>
                 <div class="int-area">
                     <input type="text" name="id" id="id" autocomplete="off" required>
@@ -30,7 +30,7 @@
                     <label for="name">Name</label>
                 </div>
                 <div class="int-area">
-                    <input type="text" name="tel" id="tel   " autocomplete="off" required>
+                    <input type="text" name="tel" id="tel" autocomplete="off" required>
                     <label for="name">TEL</label>
                 </div>
                 <div class="int-area">
@@ -54,5 +54,19 @@
         </form>
     </center>
 </body>
-<script src="register.js"></script>
+<script type="text/javascript">
+    function test() {
+        const p1 = document.getElementById('passwd').value;
+        const p2 = document.getElementById('pwcheck').value;
+        if (p1 != p2) {
+            alert("비밀번호가 일치 하지 않습니다");
+            return false;
+        } else {
+            alert("비밀번호가 일치합니다");
+            return true;
+        }
+
+    }
+</script>
+    <script src="join.js"></script>
 </html>

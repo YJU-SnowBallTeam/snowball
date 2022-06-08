@@ -23,6 +23,7 @@ router.route('/')
             id: req.body.id,
             passwd: req.body.passwd,
           });
+          
           console.log("PostUser : ",login);
           res.status(201).json(login);
         } catch (err) {
