@@ -22,7 +22,7 @@ router.route('/')
               id: req.body.id,
             } 
           });
-          console.log("유저는 : ",user);
+          // console.log("유저는 : ",user);
           if(user){
             if(user.passwd == req.body.passwd){
               await res.status(201).json(user)

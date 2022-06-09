@@ -49,7 +49,14 @@
                 <a href="#"></a>
             </div>
         </li>
-        <li class="home"><a href="/login">Log In</a><a style="display: none">logout</a></li>
+        {% block content %}
+            {% set Yeah = '로그인' %}
+            {% if user === null %}
+            <li class="home"><a href="/login">{{Yeah}}</a></li>
+            {% else %}
+            <li class="home"><a href="/logout">logout</a></li>
+            {% endif %}
+            {% endblock %}
     </ul>
 </div>
 </nav>

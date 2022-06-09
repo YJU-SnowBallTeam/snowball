@@ -5,20 +5,24 @@ const { Is } = require('nunjucks/src/nodes');
 const router = express.Router();
 
 let IsLogined = null;
+let i = 1;
 // GET / 라우터
 router.route('/')
 .post(async (req,res) =>{
    try {
-      console.log("누구세요? ",req.body);
-      if(req.body){
-         console.log("if문 안의 req.body입니다 ",req.body);
-         IsLogined = req.body.user
+      console.log("if문 밖의 req.body 예상 , sucess",req.body);
+      if(req.body.user !== undefined){
+         IsLogined = await req.body.user
+         console.log("if문 안입니다.");
+         console.log("if문 내의 req.body 예상 success",req.body);
+      }else{
+         IsLogined = null;
       }
       console.log("index.js의 IsLogined",IsLogined)
-      req.session.IsLogined = IsLogined /* 세션을 저장하는 코드 */
-      console.log("2번째 누구세요" ,IsLogined);
-      console.log(req.session);
+      req.session.IsLogined = await IsLogined /* 세션을 저장하는 코드 */
+      
       return res.send(req.session)
+      
       // IsLogined를 login.js로 보냈음.
       
    } catch (error) {
@@ -28,7 +32,7 @@ router.route('/')
 .get(async (req, res) => {
    try {
       const user = await req.session.IsLogined
-      console.log("get 요청 : ",user);
+      // console.log("get 요청 : ",user);
       await res.render('MainPage/ALP1.html' ,{ user })
    } catch (error) {
       console.error(error);

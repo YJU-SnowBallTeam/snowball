@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet"  href="nav.css" ></link>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     
@@ -71,24 +72,14 @@
         <div id='img'></div>
     </section>
     <script>
-        const 페이지이동 = () => {
-            console.log('하위');
-        }
-
-        const toggleBtn = document.querySelector('.fa-bars');
-        // const menu = document.querySelector('.navbar__menu');
-        
-
-        toggleBtn.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            // sns.classList.toggle('active');
-        });
-        // toggleBtn.addEventListener('mouseover', () => {
-        //     toggleBtn.style.backgroundColor = 'blue';
-        // })
-        // toggleBtn.addEventListener('hover', () => {
-        //     toggleBtn.style.backgroundColor = 'blue';
-        // })
+    console.log("sex2");
+    async function hello() {
+      const isLogined = await axios.post('/').then((res) => res.data)
+      console.log("로그인 한 정보 :",isLogined)
+      return isLogined;
+    }
+    hello()
+    console.log("sex");
     </script>
 </body>
 </html>

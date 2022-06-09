@@ -10,6 +10,7 @@ dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
+var FileStore = require('session-file-store')(session)
 
 // 시퀄라이즈 부분
 const { sequelize } = require('./models')
@@ -44,6 +45,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
+  // store: new FileStore(),
   cookie: {
     httpOnly: true,
     secure: false,
