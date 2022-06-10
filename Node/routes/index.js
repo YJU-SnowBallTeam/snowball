@@ -27,6 +27,7 @@ router.route('/')
 
 router.get('/logout',(req,res) =>{
    console.log("세션 삭제");
+   IsLogined = null;
    req.session.IsLogined = null;
    
    console.log('/logout의 req.session',req.session);
