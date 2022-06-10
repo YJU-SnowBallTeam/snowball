@@ -9,9 +9,10 @@ let IsLogined;
 router.route('/')
 .post(async (req,res) =>{
 
-   console.log("req.method",req.method);
-   console.log('post.(/)의 IsLogined',IsLogined);
+  //  console.log("req.method",req.method);
+  //  console.log('post.(/)의 IsLogined',IsLogined);
    req.session.IsLogined = IsLogined;
+   req.session.save();
    console.log('post.(/)의 req session',req.session)
    return res.send(req.session)
 })
@@ -29,7 +30,7 @@ router.get('/logout',(req,res) =>{
    console.log("세션 삭제");
    IsLogined = null;
    req.session.IsLogined = null;
-   
+   req.session.save();
    console.log('/logout의 req.session',req.session);
 
    res.redirect('/')
@@ -281,7 +282,8 @@ router.get('/register',(req,res)=>{
    res.render('Register/signup')
 })
 router.get('/schedule',(req,res)=>{
-   res.render('Schedule/schedule')
+  const user = req.session.IsLogined
+   res.render('Schedule/schedule' ,{user})
 })
 
 router.get('/gongji',(req,res) =>{
