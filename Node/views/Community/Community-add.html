@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community-add</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -33,7 +34,13 @@
           </tr>
           <tr>
             <td>
-              <input type="text" name="inputWriter" placeholder="작성자 ID" />
+              <input
+                type="text"
+                name="inputWriter"
+                placeholder="작성자 ID"
+                value="{{user.id}}"
+                readonly
+              />
             </td>
           </tr>
           <tr>
@@ -51,5 +58,22 @@
 
     <!-- 추후 자바스크립트로 추가 구현 -->
     <!-- 추후 맨위로가기 맨아래로가기 구현 -->
+
+    <!-- <script>
+        const toggleBtn = document.querySelector('.fa-bars');
+        // const menu = document.querySelector('.navbar__menu');
+        
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            // sns.classList.toggle('active');
+        });
+        // toggleBtn.addEventListener('mouseover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+        // toggleBtn.addEventListener('hover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+    </script> -->
   </body>
 </html>

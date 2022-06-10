@@ -24,7 +24,7 @@ addEventListener('submit', async (e) => {
       .then((res) =>{
         return res.data
       });
-      console.log("user.js로 보낸 데이터",result);
+      console.log(result);
       if(result){
         console.log("회원가입 성공");
         location.href = '/login';

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community-detail</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -43,7 +44,9 @@
     />
     {% include "../nav.html" %}
     <!-- <button type="button" class="btn btn-success">Success</button>    -->
-    <input type="hidden" value="{{board.post_id}}" class="id" />
+    <input type="hidden" value="{{user.id}}" class="user-id" />
+    <input type="hidden" value="{{board.post_id}}" class="post-id" />
+    <input type="hidden" value="{{board.boarder}}" class="id" />
     <table class="table table-hover" style="margin-top: 10vw; width: 80vw">
       <tr>
         <td>{{board.title}}</td>
@@ -82,8 +85,7 @@
           <form action="/Community/comment/{{board.post_id}}" method="POST">
             <tr>
               <th><input type="text" style="width: 40vw;" name="inputContent"></th>
-              <th><input type="text" style="width: 15vw;" name="inputCommentWriter"></th>
-              <th><input type="text" style="width: 15vw;" name="" disabled></th>
+              <th><input type="text" style="width: 15vw;" name="inputCommentWriter" value="{{user.id}}" readonly></th> <th><input type="text" style="width: 15vw;" name="date" disabled></th>
               <th>
                 <!-- 없어도 됨 -->
                 <!-- <input type="hidden" name="inputPostId" value="{{board.post_id}}"> -->
@@ -100,7 +102,7 @@
             <td>{{comment.content}}</td>
             <td>{{comment.commenter}}</td>
             <td>{{comment.date}}</td>
-            <td>
+            <td id={{comment.commenter}}>
               <button
                 type="button"
                 onclick="location.href='/Community/comment/update/{{comment.comment_id}}'"
@@ -129,18 +131,25 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-      const postId = document.querySelector(".id").value;
-      console.log(postId);
+      const postId = document.querySelector(".post-id").value;
+      const userId = document.querySelector('.user-id').value;
+      const boarderId = document.querySelector(".id").value;
+      // console.log(postId);
 
       // 글 삭제
       document.querySelector("#delete").addEventListener("click", function (e) {
-        axios
-          .delete(`/Community/delete/${postId}`)
-          .then((res) => {
-            console.log(res.data);
-            location.href = "/Community";
-          })
-          .catch((err) => console.log(err));
+        if (userId != boarderId) {
+          alert("작성자와 일치하지 않습니다.");
+          window.location.href = `/Community/${postId}`;
+        } else {
+          axios
+            .delete(`/Community/delete/${postId}`)
+            .then((res) => {
+              console.log(res.data);
+              location.href = "/Community";
+            })
+            .catch((err) => console.log(err));
+        }
       });
 
       const deleteBtns = document.querySelectorAll(".deleteBtn");
@@ -148,13 +157,20 @@
       for (const deleteBtn of deleteBtns) {
         deleteBtn.addEventListener('click', function(e) {
           commentId = (e.target.parentNode.parentNode.id);
-          axios
-          .delete(`/Community/comment/delete/${commentId}`)
-          .then((res) => {
-            console.log(res.data);
-            location.href = `/Community/${postId}`;
-          })
-          .catch((err) => console.log(err));
+          commenterId = (e.target.parentNode.id);
+          console.log(commenterId);
+          if (userId != commenterId) {
+          alert("작성자와 일치하지 않습니다.");
+          window.location.href = `/Community/${postId}`;
+          } else {
+            axios
+            .delete(`/Community/comment/delete/${commentId}`)
+            .then((res) => {
+              console.log(res.data);
+              location.href = `/Community/${postId}`;
+            })
+            .catch((err) => console.log(err));
+          }
         })
       }
 

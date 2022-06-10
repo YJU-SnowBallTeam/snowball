@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community-comment-update</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -26,7 +27,7 @@
       rel="stylesheet"
     />
     {% include "../nav.html" %}
-    <input type="hidden" value="{{board.post_id}}" class="id" />
+    <input type="hidden" value="{{comment.post_id}}" class="board-id" />
 
     <table class="table table-hover" style="margin-top: 10vw; width: 80vw">
       
@@ -49,7 +50,10 @@
                 placeholder="댓글을 다시오."
                 value="{{comment.content}}"></th>
               <th><input type="text" style="width: 15vw;" name="inputCommentWriter" value="{{comment.commenter}}" placeholder="who are U?"></th>
-              <th><input type="text" style="width: 15vw;" name="" disabled><input type="hidden" value="{{comment.post_id}}" name="inputPostId" class="id" /></th>
+              <th><input type="text" style="width: 15vw;" name="" disabled>
+                <input type="hidden" value="{{comment.post_id}}" name="inputPostId" class="comment-id" />
+                <input type="hidden" value="{{user.id}}" class="user-id" />
+                <input type="hidden" value="{{comment.commenter}}" class="commenter-id" /></th>
               <th>
                 <input type="submit" class="save" value="저장"></input>
               </th>
@@ -71,24 +75,16 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-      const postId = document.querySelector(".id").value;
-      console.log(postId);
-
-      const deleteBtns = document.querySelectorAll(".deleteBtn");
-      // 댓글 삭제
-      for (const deleteBtn of deleteBtns) {
-        deleteBtn.addEventListener('click', function(e) {
-          commentId = (e.target.parentNode.parentNode.id);
-          axios
-          .delete(`/Community/comment/delete/${commentId}`)
-          .then((res) => {
-            console.log(res.data);
-            location.href = `/Community/${postId}`;
-          })
-          .catch((err) => console.log(err));
-        })
-      }
-
+      window.onload = function () {
+        const userId = document.querySelector(".user-id").value;
+        const commenterId = document.querySelector(".commenter-id").value;
+        const boardId = document.querySelector('.board-id').value;
+        console.log(boardId);
+        if (userId != commenterId) {
+          alert("작성자와 일치하지 않습니다.");
+          window.location.href = `/Community/${boardId}`;
+        }
+      };
     </script>
   </body>
 </html>

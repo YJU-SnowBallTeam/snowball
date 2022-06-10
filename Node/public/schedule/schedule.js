@@ -1,6 +1,10 @@
-$(document).ready(function() {
-    calendarInit();
-});
+async function hello() {
+    const isLogined = await axios.post('/').then((res) => res.data)
+    console.log(isLogined)
+    return isLogined;
+}
+hello()
+
 /*
     달력 렌더링 할 때 필요한 정보 목록 
 
@@ -8,12 +12,7 @@ $(document).ready(function() {
     금월 마지막일 날짜와 요일
     전월 마지막일 날짜와 요일
 */
-async function hello(){
-    const isLogined = await axios.post('/').then((res)=>res.data)
-    console.log(isLogined)
-    return isLogined;
-}
-hello()
+
 function calendarInit() {
 
     // 날짜 정보 가져오기

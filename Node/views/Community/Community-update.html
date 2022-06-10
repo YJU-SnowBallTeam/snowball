@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Community-update</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -43,7 +44,10 @@
                 placeholder="작성자 ID"
                 value="{{board.boarder}}"
                 class="id"
+                readonly
               />
+              <input type="hidden" value="{{user.id}}" class="user-id" />
+              <input type="hidden" value="{{board.post_id}}" class="post-id" />
             </td>
           </tr>
           <tr>
@@ -61,8 +65,19 @@
       </form>
     </section>
     <script>
+      window.onload = function () {
+        let userId = document.querySelector(".user-id").value;
+        let boarderId = document.querySelector(".id").value;
+        let postId = document.querySelector(".post-id").value;
+        if (userId != boarderId) {
+          alert("작성자와 일치하지 않습니다.");
+          window.location.href = `/Community/${postId}`;
+        }
+      };
+
       document.getElementById("update").addEventListener("click", function () {
-        const postId = document.querySelector(".id").value;
+        const boarderId = document.querySelector(".id").value;
+        const postId = document.querySelector(".post-id").value;
         const formData = new FormData();
         formData.append("inputTitle", this.inputTitle);
         formData.append("inputWriter", this.inputWriter);
