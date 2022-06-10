@@ -15,21 +15,21 @@ addEventListener('submit', async (e) => {
         return res.data;
         /* routes/login.js에서 받아온 유저 데이터 */
     });
-    // console.log("유저는 : ",user);
-    if(user){
+    console.log(user);
+    if(user !== undefined){
+
         if(user === "falsed"){
           return alert("비번틀림")
         }
-        // console.log("로그인 성공, 메인 페이지로 이동");
 
-        // console.log("Post받은 유저데이터 : ",user);
-        const isLogined = await axios.post('/',{user} )
-        console.log(isLogined);
-        // index.js로 post한 데이터 
+        const isLogined = user
+        console.log("IsLogined는 ",isLogined);
+        await axios.post('/logined',{user})
+          // index.js의 logined로 post요청을 보낸다.
+        location.href = '/logined';
+        console.log("로그인 성공");
+
         
-        // console.log("IsLogined 데이터는 ",isLogined)
-        
-          location.href = '/';
         // 메인페이지.html 열어 주세요
       }
       else{
@@ -40,7 +40,7 @@ addEventListener('submit', async (e) => {
       }
       
     } catch (err) {
-      console.error('err');
+      console.error(err);
     }
     
     

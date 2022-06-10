@@ -5,11 +5,13 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const path = require('path');
 const nunjucks = require('nunjucks');
-var fs = require('fs')
+
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
+// const communityRouter = require('./routes/community');
+
 var FileStore = require('session-file-store')(session)
 
 // 시퀄라이즈 부분
@@ -49,7 +51,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: false,
-    maxAge: 3000
+    maxAge: 30000
   },
   name: 'session-cookie',
 }));
@@ -62,6 +64,7 @@ nunjucks.configure('views', {
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
+// app.use('/community', communityRouter);
 
 app.post('/')
 

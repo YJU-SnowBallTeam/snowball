@@ -16,47 +16,53 @@
             </a>
             <div class="dropdown1-menu">Fukuoka</div>
             <div class="dropdown1-content">
-                <a href="/weather">날씨</a>
-                <a href="#"></a>
-                <a href="/map">지도</a>
-                <a href="#"></a>
+                <a class ='aTag' href="/weather">날씨</a>
+                <a class ='aTag' href="#"></a>
+                <a class ='aTag' href="/map">지도</a>
+                <a class ='aTag' href="#"></a>
             </div>
         </li>
         <li class="dropdown1">
             <div class="dropdown1-menu">Bulletin Board</div>
             <div class="dropdown1-content">
-                <a href="#">YungStagram</a>
-                <a href="#">공지</a>
-                <a href="/Community">커뮤니티</a>
-                <a href="#"></a>
+                <a class ='aTag' href="#">YungStagram</a>
+                <a class ='aTag' href="#">공지</a>
+                <a class ='aTag' href="/Community">커뮤니티</a>
+                <a class ='aTag' href="#"></a>
             </div>
         </li>
         <li class="dropdown1">
             <div class="dropdown1-menu">Schedule</div>
             <div class="dropdown1-content">
-                <a href="/schedule" onClick=페이지이동()>스케줄러</a>
-                <a href="#">학교 일정</a>
-                <a href="#"></a>
-                <a href="#"></a>
+                <a class ='aTag' href="/schedule" onClick=페이지이동()>스케줄러</a>
+                <a class ='aTag' href="#">학교 일정</a>
+                <a class ='aTag' href="#"></a>
+                <a class ='aTag' href="#"></a>
             </div>
         </li>
         <li class="dropdown1">
             <div class="dropdown1-menu">Groups</div>
             <div class="dropdown1-content">
-                <a href="#">그룹톡</a>
-                <a href="#"></a>
-                <a href="#">개인톡</a>
-                <a href="#"></a>
+                <a class ='aTag' href="#">그룹톡</a>
+                <a class ='aTag' href="#"></a>
+                <a class ='aTag' href="#">개인톡</a>
+                <a class ='aTag' href="#"></a>
             </div>
         </li>
         {% block content %}
             {% set Yeah = '로그인' %}
-            {% if user === null %}
+            {% if user === null or user === undefined %}
             <li class="home"><a href="/login">{{Yeah}}</a></li>
             {% else %}
             <li class="home"><a href="/logout">logout</a></li>
             {% endif %}
-            {% endblock %}
+        {% endblock %}
     </ul>
 </div>
 </nav>
+
+<script>
+    
+    
+    
+</script>

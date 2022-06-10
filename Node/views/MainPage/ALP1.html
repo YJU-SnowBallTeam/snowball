@@ -21,11 +21,19 @@
     </section>
 </body>
 <script>
+    const aTag = document.querySelector('.aTag')
     async function hello(){
     const isLogined = await axios.post('/').then((res)=>res.data)
-    console.log(isLogined)
+    console.log("세션은 : ",isLogined)
     return isLogined;
-}
-hello()
+    }
+    hello()
+    // aTag.addEventListener('click',sex());
+    
+    // function sex() {
+    //     if(isLogined== null || isLogined == undefined){
+    //         alert('꺼져')
+    //     }
+    // }
 </script>
 </html>

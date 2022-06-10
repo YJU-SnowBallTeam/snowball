@@ -22,12 +22,10 @@ router.route('/')
               id: req.body.id,
             } 
           });
-          // console.log("유저는 : ",user);
           if(user){
             if(user.passwd == req.body.passwd){
               await res.status(201).json(user)
               /* public/login/login.js(13줄)로 결과를 response해줌. */
-            // await res.redirect('/')
             } else{
               res.send("falsed");
             }
@@ -55,10 +53,5 @@ router.post("/user", async (req,res) =>{
   })
   console.log(result);
 })
-
-router.get('/',(req,res) =>{
-    console.log(req.body);
-})
-
 
 module.exports = router;
