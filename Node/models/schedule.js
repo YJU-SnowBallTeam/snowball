@@ -49,7 +49,7 @@ module.exports = class Schedule extends Sequelize.Model {
     static associate(db) {
         // db.Comment.hasMany(db.notice, { foreignKey: 'id', targetKey: 'id' });
         // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
-        db.Board.belongsTo(db.User, { foreignKey: "scheduler", targetKey: "id" });
+        db.Schedule.belongsTo(db.User, { foreignKey: "scheduler", targetKey: "id" });
 
     }
 };
