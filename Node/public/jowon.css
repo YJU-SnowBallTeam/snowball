@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "Applesandol";
+    src: url("Profile_sources/AppleSDGothicNeoL00-09.otf");
+}
+
+.sex {
+    background-color: black;
+}
+
+video {
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: -moz-hidden-unscrollable;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+#page{
+    background: rgba(0,0,0,0.1);
+}
+
+#title_bar{
+    margin-top: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+
+}
+
+#girogi{
+    color: white;
+    font-family: Applesandol;
+}
+
+.card{
+    margin: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    width: 750px;
+    height: 250px;
+    font-family: Applesandol;
+}
+.card2{
+    margin: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    width: 750px;
+    height: 250px;
+    font-family: Applesandol;
+}
+
+#jo1{
+    text-align: left;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+#jo2{
+    text-align: left;
+    margin: 130px;
+    margin-top: 40px;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+#jo3{
+    text-align: left;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+#jo4{
+    text-align: left;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+#jo5{
+    text-align: left;
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-top: 40px;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+#jo6{
+    text-align: left;
+    list-style:none;
+    display: inline-block;
+    color: white;
+}
+.li-body{
+    color: rgb(104, 102, 102);
+    font-size: 15px;
+    line-height: 25px;
+}

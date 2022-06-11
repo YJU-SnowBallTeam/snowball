@@ -1,179 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="/Community.css" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Community-detail</title>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="stylesheet" href="./Community-main.css" />
-  </head>
-  <body>
-    <!-- <div class="black-bg">
-      <div class="white-bg">
-        <h4>정말 삭제하시겠습니까?</h4>
-        <form action="success.html">
-          <div class="my-3">
-            <input type="text" class="form-control" id="email" />
-          </div>
-          <div class="my-3">
-            <input type="password" class="form-control" id="pw" />
-          </div>
-          <button type="submit" class="btn btn-primary" id="send">삭제</button>
-          <button type="button" class="btn btn-danger" id="close">닫기</button>
-        </form>
-      </div>
-    </div> -->
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap"
-      rel="stylesheet"
-    />
-    {% include "../nav.html" %}
-    <!-- <button type="button" class="btn btn-success">Success</button>    -->
+<head>
+  <link rel="stylesheet" href="/Community.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+
+<body style="font-family: 'Spoqa Han Sans Neo', 'sans-serif';">
+  {% include "../nav.html" %}
+  <div>
     <input type="hidden" value="{{user.id}}" class="user-id" />
     <input type="hidden" value="{{board.post_id}}" class="post-id" />
     <input type="hidden" value="{{board.boarder}}" class="id" />
-    <table class="table table-hover" style="margin-top: 10vw; width: 80vw">
+    <table class="table" style="margin-top: 10vw; width: 80vw">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">{{board.title}}</th>
+          <th scope="col">{{board.boarder}}</th>
+          <th scope="col", id='dateVal'>{{board.date}}</th>
+        </tr>
+      </thead>
+    </table>
+    <table class="table">
       <tr>
-        <td>{{board.title}}</td>
-        <td>{{board.boarder}}</td>
-        <td>{{board.date}}</td>
-      </tr>
-      <tr>
-        <td colspan="3">{{board.content}}</td>
+        <th>{{board.content}} </th>
       </tr>
     </table>
-    <!-- 회원 아이디랑 작성자 아이디랑 비교해서 버튼 보여주기 -->
-    <div class="buttons">
-      <button
-        type="button"
-        onclick="location.href='/Community/{{board.post_id}}/update'"
-        style="cursor: hand"
-        class="btn" 
-      >
+
+    <div class="buttons" style="float: right; padding-right: 20vw; margin-bottom:50px ">
+      <button type="button" onclick="location.href='/Community/{{board.post_id}}/update'" style="cursor: hand"
+        class="btn">
         글 수정
       </button>
       <button type="button" style="cursor: hand" class="btn" id="delete">
         글 삭제
       </button>
     </div>
-    <table class="table table-hover" style="margin-top: 5vw; width: 80vw">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col" style="width: 40vw; text-align: center">댓글</th>
-            <th scope="col" style="width: 15vw">글쓴이</th>
-            <th scope="col" style="width: 15vw">작성일</th>
-            <th scope="col" style="width: 15vw">
-              <button class="btn">댓글</button>
-            </th>
-          </tr>
-          <form action="/Community/comment/{{board.post_id}}" method="POST">
-            <tr>
-              <th><input type="text" style="width: 40vw;" name="inputContent"></th>
-              <th><input type="text" style="width: 15vw;" name="inputCommentWriter" value="{{user.id}}" readonly></th> <th><input type="text" style="width: 15vw;" name="date" disabled></th>
-              <th>
-                <!-- 없어도 됨 -->
-                <!-- <input type="hidden" name="inputPostId" value="{{board.post_id}}"> -->
-                <input type="submit" class="save" value="저장"></input>
-              </th>
-            </tr>
-          </form>
-        </thead>
+  </div>
 
-        <tbody>
-          {% for comment in comments %}
-          <tr id={{comment.comment_id}}>
-            <td scope="row" style="display:none;" value="{{board.post_id}}"></td>
-            <td>{{comment.content}}</td>
-            <td>{{comment.commenter}}</td>
-            <td>{{comment.date}}</td>
-            <td id={{comment.commenter}}>
-              <button
-                type="button"
-                onclick="location.href='/Community/comment/update/{{comment.comment_id}}'"
-                style="cursor: hand"
-                class="btn" 
-              >수정</button>
-              <button class="deleteBtn btn" name="{{comment.comment_id}}" style="cursor: hand">삭제</button>
-            </td>
-          </tr> 
-          {% endfor %}
-        </tbody>
-        
-      </table>
-    </div>
+  <div style="display: flex;
+  justify-content : center; margin: auto; width : 80vw">
+  <table class='table' >
+    <tbody>
+      <tr>
+        <th>댓글</th>
+        <th>글쓴이</th>
+        <th>댓글날자</th>
+        <th>삭제여부</th>
+      </tr>
+      {% for comment in comments %}
+      <tr id={{comment.comment_id}}>
+        <th scope="row" style="display:none;" value="{{board.post_id}}"></th>
+      </tr>
+      <tr>
+        <td>{{comment.content}}</td>
+        <td>{{comment.commenter}}</td>
+        <td>{{comment.date}}</td>
+        <td><button type="button" onclick="location.href='/Community/comment/update/{{comment.comment_id}}'"
+            style="cursor: hand" class="btn">수정</button>
+          <button class="deleteBtn btn" name="{{comment.comment_id}}" style="cursor: hand">삭제</button></td>
+      </tr>
+      <tr id={{comment.commenter}}>
 
-    <script>
-      
-    </script>
+        {% endfor %}
+        <form action="/Community/comment/{{board.post_id}}" method="POST">
+      <tr>
+        <td><input type="text" style="width: 40vw;" name="inputContent" placeholder="댓글 입력"></td>
+        <td><input type="hidden" style="width: 15vw;" name="inputCommentWriter" value="{{user.id}}" readonly></td>
+        <td><input type="hidden" style="width: 15vw;" name="date" disabled style="visibility: hidden"></td>
+        <td>
+          <input type="submit" class="save" value="저장"></input>
+        </td>
+      </tr>
+      </form>
+    </tbody>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+  </table>
+  </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
-    <script>
-      const postId = document.querySelector(".post-id").value;
-      const userId = document.querySelector('.user-id').value;
-      const boarderId = document.querySelector(".id").value;
-      // console.log(postId);
 
-      // 글 삭제
-      document.querySelector("#delete").addEventListener("click", function (e) {
-        if (userId != boarderId) {
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    let today = new Date();
+
+    let year = today.getFullYear(); // 년도
+    let month = today.getMonth() + 1; // 월
+    let date = today.getDate();
+    let day = (String(month) + '월' + String(date) + '일');
+    console.log(day);
+    window.onload = () => {
+      document.querySelector('#dateVal').innerHTML = day;
+    }
+
+    const postId = document.querySelector(".post-id").value;
+    const userId = document.querySelector('.user-id').value;
+    const boarderId = document.querySelector(".id").value;
+    // console.log(postId);
+
+    // 글 삭제
+    document.querySelector("#delete").addEventListener("click", function (e) {
+      if (userId != boarderId) {
+        alert("작성자와 일치하지 않습니다.");
+        window.location.href = `/Community/${postId}`;
+      } else {
+        axios
+          .delete(`/Community/delete/${postId}`)
+          .then((res) => {
+            console.log(res.data);
+            location.href = "/Community";
+          })
+          .catch((err) => console.log(err));
+      }
+    });
+
+    const deleteBtns = document.querySelectorAll(".deleteBtn");
+    // 댓글 삭제
+    for (const deleteBtn of deleteBtns) {
+      deleteBtn.addEventListener('click', function (e) {
+        commentId = (e.target.parentNode.parentNode.id);
+        commenterId = (e.target.parentNode.id);
+        console.log(commenterId);
+        if (userId != commenterId) {
           alert("작성자와 일치하지 않습니다.");
           window.location.href = `/Community/${postId}`;
         } else {
           axios
-            .delete(`/Community/delete/${postId}`)
-            .then((res) => {
-              console.log(res.data);
-              location.href = "/Community";
-            })
-            .catch((err) => console.log(err));
-        }
-      });
-
-      const deleteBtns = document.querySelectorAll(".deleteBtn");
-      // 댓글 삭제
-      for (const deleteBtn of deleteBtns) {
-        deleteBtn.addEventListener('click', function(e) {
-          commentId = (e.target.parentNode.parentNode.id);
-          commenterId = (e.target.parentNode.id);
-          console.log(commenterId);
-          if (userId != commenterId) {
-          alert("작성자와 일치하지 않습니다.");
-          window.location.href = `/Community/${postId}`;
-          } else {
-            axios
             .delete(`/Community/comment/delete/${commentId}`)
             .then((res) => {
               console.log(res.data);
               location.href = `/Community/${postId}`;
             })
             .catch((err) => console.log(err));
-          }
-        })
-      }
+        }
+      })
+    }
+  </script>
+</body>
 
-    </script>
-  </body>
 </html>

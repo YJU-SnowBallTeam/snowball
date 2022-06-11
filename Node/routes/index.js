@@ -1,4 +1,5 @@
 const express = require("express");
+const Girugi = require('../models/user');
 const Board = require("../models/board");
 const Comment = require("../models/comment");
 const router = express.Router();
@@ -95,7 +96,7 @@ router.get("/Community-add", (req, res) => {
 router.post("/Community", async (req, res, next) => {
   try {
     let body = req.body;
-    //  console.log(body);
+     console.log(body);
     //  console.log(body.inputContent);
     await Board.create({
       title: body.inputTitle,
@@ -103,7 +104,7 @@ router.post("/Community", async (req, res, next) => {
       boarder: body.inputWriter,
     });
     res.redirect("/Community");
-    //  return res.status(200).send("success");
+    
   } catch (err) {
     next(err);
   }
@@ -260,6 +261,10 @@ router.delete(
   }
 );
 
+router.get('/History', (req, res) =>{
+  res.render('History/HistoryPage')
+})
+
 // 체크 해볼 부분임 ================================================================
 router.get("/Schedule", (req, res) => {
   res.render("Schedule/Schedule");
@@ -283,6 +288,31 @@ router.get("/profile", (req, res) => {
     class: req.body.class,
   });
 });
-module.exports = router;
 
+router.route('/jowon').get( async (req, res)=>{
+  console.log('./jowon의 실행');
+  
+    const user = await Girugi.findAll({
+      where : {
+        grade : 2
+      }
+    })
+      console.log("유저는 :",user);
+      await res.redirect('/girugi')
+    }
+)
+
+router.get('/girugi',async (req,res) => {
+    console.log('실행');
+    const user = await Girugi.findAll({
+      where : {
+        grade : 2
+      }
+    })
+      console.log("유저는 :",user);
+    res.render("jowon/jowon" , {user});
+}
+)
+module.exports = router;
 //  ================================================================ 체크 해볼 부분임
+

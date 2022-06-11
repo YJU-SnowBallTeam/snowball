@@ -10,6 +10,7 @@ module.exports = class User extends Sequelize.Model {
         unique: true,
         comment: "user id",
       },
+      
       passwd: {
         type: Sequelize.STRING(30),
         allowNull: false,
@@ -59,6 +60,8 @@ module.exports = class User extends Sequelize.Model {
       paranoid: false,
       charset: 'utf8mb4',
       collate: 'utf8mb4_general_ci',
+      charset: "utf8", // 한국어 설정
+      collate: "utf8_general_ci", // 한국어 설정
     });
   }
 
