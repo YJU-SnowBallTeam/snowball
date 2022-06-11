@@ -5,13 +5,17 @@ async function hello() {
 }
 hello()
 
+window.onload = function() {
+    calendarInit();
+};
 /*
     달력 렌더링 할 때 필요한 정보 목록 
-
     현재 월(초기값 : 현재 시간)
     금월 마지막일 날짜와 요일
     전월 마지막일 날짜와 요일
 */
+
+
 
 function calendarInit() {
 
@@ -93,6 +97,10 @@ function calendarInit() {
         thisMonth = new Date(currentYear, currentMonth + 1, 1);
         renderCalender(thisMonth); 
     });
+
+    const curYearMonth = document.querySelector('.year-month')
+    console.log(curYearMonth.innerText);
+    return curYearMonth.innerText;
 }
 
 const Daycur = document.querySelector('.day.current');
@@ -100,13 +108,24 @@ const allCal = document.querySelector('#all_cal')
 const time = document.querySelector('#time')
 const timeDiv = document.querySelector('#timeDiv')
 const formTag = document.querySelector('#formtag')
+const curYearMonth = calendarInit();
+console.log("curYearMonth : ",curYearMonth);
+
+let curYear = curYearMonth.split('.',1)[0]
+let curMonth = curYearMonth.split('.',2)[1]
+console.log(curYear);
+console.log(curMonth);
+curYear = String(curYear)
+curMonth = String(curMonth)
+console.log(curYear + curMonth);
+
 $('.day').click(function(){ 
 
     var get12 = $(this).attr('value'); 
     
     var get22 = $(this).text();
     
-    console.log(get12, get22);
+    console.log(get12);
     
     })
 function clickEvent(){
@@ -190,9 +209,6 @@ function clickEvent(){
         formTag.style.display = "block"
         
     }, 500);
-    
 }
 
 $('#all_cal').on("click",clickEvent)
-
-// https://songsong.dev/11

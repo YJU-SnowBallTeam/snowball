@@ -1,72 +1,39 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    /* background-color: lightblue; */
+li {
+    list-style: none;
 }
-.main-box {
-    width: 100%;
-    height: 1000px;
-    left: 200px;
-    background-color:lightblue;
-}
-.profile-picture {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    margin-top: 20px;
-    text-align: center;
-}
-
+html, body {
+        width: 100%;
+        height: 100%;
+        background-color:lightblue;
+      }
 .profile-box {
-    width: 700px;
+    
+
+    width: 535px;
     height: 400px;
+    margin: 0 auto;
     background: white;
     border-radius: 20px;
-    position: absolute;
-    left: 200px;
-    top: 30px;
+    border: 2px solid rgb(66, 65, 65);
+    background-image: url("yjpLogo.png");
+
 }
 #my-info{
-    position: absolute;
-    left: 200px;
-    top: 100px;
-    font-size: 30px;
-}
-#introduce{
-    position: absolute;
-    left: 80px;
-    bottom: 130px;
-    font-size: 20px;
-}
-#introduce1{
-    position: absolute;
-    left: 80px;
-    bottom: 100px;
-    font-size: 20px;
+    padding-left: 70px;
+    padding-top: 90px;
+    left: 30px;
+    top: 70px;
+    font-size: 25px;
 }
 
-#sns{
-    position: absolute;
-    right: 250px;
-    bottom: 80px;
+#rappedDiv{
+    width:100%;
+    height:100%;
 }
 
-.insta{
-    position: absolute;
-    right: 90px;
-    width: 50px;
-    height: 50px;
-}
-.github{
-    position: absolute;
-    right: 190px;
-    width: 50px;
-    height: 50px;
-}
-.mail{
-    position: absolute;
-    right: -10px;
-    width: 55px;
-    height: 50px;
+#sns-form{
+    padding-left: 50px;
+    
+    padding-top: 120px;
+    
 }

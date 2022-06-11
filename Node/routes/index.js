@@ -283,10 +283,8 @@ router.get("/gongji/writePage", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  res.render("profile/profile", {
-    name: req.body.name,
-    class: req.body.class,
-  });
+  const user = req.session.IsLogined;
+  res.render("profile/profile", {user});
 });
 
 router.route('/jowon').get( async (req, res)=>{

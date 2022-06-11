@@ -10,6 +10,8 @@ addEventListener('submit', async (e) => {
     const tel = e.target.tel.value;
     const email = e.target.email.value;
     const yjuclass =  class1.options[class1.selectedIndex].text;
+    const instagram = e.target.instagram.value;
+    const github = e.target.github.value;
     const grade = e.target.grade.value;
     console.log("id : " , id );
     console.log("pw : " , passwd );
@@ -20,7 +22,7 @@ addEventListener('submit', async (e) => {
     console.log("grade: " , grade );
     console.log("yjuclass: ",yjuclass );
     try {
-      const result = await axios.post('/user', { id,passwd,pwcheck,name,tel,email,yjuclass,grade })
+      const result = await axios.post('/user', { id,passwd,pwcheck,name,tel,email,instagram,github,yjuclass,grade })
       .then((res) =>{
         return res.data
       });
