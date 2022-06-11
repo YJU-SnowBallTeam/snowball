@@ -41,7 +41,7 @@ document.getElementById("user-form").addEventListener("submit", async (e) => {
     console.log(result);
     if (result) {
       console.log("회원가입 성공");
-      // location.href = "/login";
+      location.href = "/login";
     } else {
       alert("회원가입실패");
     }
