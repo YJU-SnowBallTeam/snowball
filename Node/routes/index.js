@@ -311,6 +311,8 @@ router.get('/girugi',async (req,res) => {
     res.render("jowon/jowon" , {user});
 }
 )
+
+
 module.exports = router;
 //  ================================================================ 체크 해볼 부분임
 

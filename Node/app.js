@@ -70,6 +70,7 @@ app.use("/user", userRouter);
 app.use("/login", loginRouter);
 
 app.get("/map", (req, res) => {
+
   return res.end(fs.readFileSync("views/MapPage/MapPage.html"));
 }); /* 건들지 말것 */
 
