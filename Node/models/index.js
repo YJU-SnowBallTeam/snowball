@@ -5,9 +5,9 @@ const Comment = require('./comment');
 const Notice = require('./notice');
 const Board = require('./board');
 const Professor = require('./professor');
+const Login = require('./login');
 const Qboard = require('./qboard');
 const Qcomment = require('./qcomment');
-const Schedule = require('./schedule');
 const Faq = require('./faq');
 
 const env = process.env.NODE_ENV || 'development';
@@ -27,7 +27,6 @@ db.Professor = Professor;
 db.Qboard = Qboard;
 db.Qcomment = Qcomment;
 db.Faq = Faq;
-db.Schedule = Schedule;
 
 
 User.init(sequelize);
@@ -35,19 +34,19 @@ Comment.init(sequelize);
 Notice.init(sequelize);
 Board.init(sequelize);
 Professor.init(sequelize);
+Login.init(sequelize);
 Qboard.init(sequelize);
 Qcomment.init(sequelize);
 Faq.init(sequelize);
-Schedule.init(sequelize);
 
 User.associate(db);
 Comment.associate(db);
 Notice.associate(db);
 Board.associate(db);
 Professor.associate(db);
+Login.associate(db);
 Qboard.associate(db);
 Qcomment.associate(db);
 Faq.associate(db);
-Schedule.associate(db);
 
 module.exports = db;

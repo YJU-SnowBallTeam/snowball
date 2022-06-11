@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Notice-add</title>
+    <title>FAQ-add</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="/Notice.css" />
+    <link rel="stylesheet" href="/faq.css" />
+    <link rel="stylesheet" href="/Community.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -20,33 +21,30 @@
       rel="stylesheet"
     />
     <div class="container" style="margin-top: 20vh">
-      <h2>공지사항 글쓰기</h2>
-      <form action="/Notice" method="POST">
+      <h2>FAQ 글쓰기</h2>
+      <form action="/Faq" method="POST">
         <div class="form-group">
-          <label for="title">제목</label>
-          <!-- placeholder 속성 입력한 데이터가 없는 경우 배경으로 나타난다.실제적으로 입력을 100자까지로 지정 -->
-          <!-- required 속성을 설정하면 필수입력 사항이된다. -->
-          <!-- pattern 속성을 이용한 정규표현식으로 데이터의 유효성 검사를 할 수 있다. -->
+          <label for="question">Question</label>
           <input
             type="text"
             class="form-control"
-            id="title"
-            placeholder="제목 입력(4-100)"
-            name="inputTitle"
+            id="question"
+            placeholder="질문 입력(4-100)"
+            name="inputQuestion"
             maxlength="100"
             required="required"
             pattern=".{4,100}"
           />
         </div>
         <div class="form-group">
-          <label for="content">내용</label>
+          <label for="answer">Answer</label>
           <!--  여러줄의 데이터를 입력하고 하고자 할때 textarea 태그를 사용한다. -->
           <!--  textarea 안에 있는 모든 글자는 그대로 나타난다. 공백문자, tag, enter -->
           <textarea
             class="form-control"
             rows="5"
-            id="content"
-            name="inputContent"
+            id="answer"
+            name="inputAnswer"
             placeholder="내용 작성"
           ></textarea>
         </div>
@@ -75,7 +73,7 @@
 
         if (userGrade != 3) {
           alert("당신은 권한이 없어요!!");
-          window.location.href = `/Notice`;
+          window.location.href = `/Faq`;
         }
       };
     </script>

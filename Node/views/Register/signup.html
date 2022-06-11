@@ -30,23 +30,27 @@
                     <label for="name">Name</label>
                 </div>
                 <div class="int-area">
-                    <input type="text" name="grade" id="name" autocomplete="off" required>
-                    <label for="name">Grade</label>
-                </div>
-                <div class="int-area">
-                    <input type="text" name="tel" id="tel" autocomplete="off" required>
+                    <input type="text" name="tel" id="tel   " autocomplete="off" required>
                     <label for="name">TEL</label>
                 </div>
                 <div class="int-area" id="int2-area" >
-                    <input type="email" name="email" id="email" placeholder=""autocomplete="off" required>
+                    <input type="text" name="email" id="email" placeholder=""autocomplete="off" required>
                     <label for="name">E-mail</label>
                 </div>
                 <div class="int-area">
                     <select id="area2">
-                        <option value = 'class'>class</option>
-                        <option value = 'class1'>WD-J</option>
-                        <option value = 'class2'>CP-J</option>
+                        <option value = 'class'>'class'</option>
+                        <option value = 'class1'>'WD-J'</option>
+                        <option value = 'class2'>'CP-J'</option>
                     </select>
+                <div class="int-area" id="int2-area" >
+                    <input type="text" name="insta" id="insta" placeholder=""autocomplete="off" >
+                    <label for="name">instagram 필수x</label>
+                </div>
+                <div class="int-area" id="int2-area" >
+                    <input type="text" name="github" id="github" placeholder=""autocomplete="off">
+                    <label for="name">github 필수x</label>
+                </div>
             </table>
             <div class="btn-area">
                 <button id="btn" type="submit">Regist</button>
@@ -55,4 +59,14 @@
     </center>
 </body>
 <script src="register.js"></script>
+<script>
+    document.querySelector('#btn').addEventListener('click',(e)=>{
+        const passwd = document.querySelector('#passwd').value
+        const passwdcheck = document.querySelector('#pwcheck').value
+        if(passwdcheck != passwd){
+            alert('비밀번호가 다릅니다')
+            e.preventDefault()
+        }
+    })
+</script>
 </html>

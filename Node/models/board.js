@@ -4,7 +4,7 @@ module.exports = class Board extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        post_id: {
+        post_id: { // 커뮤니티 글번호
           type: Sequelize.INTEGER.UNSIGNED,
           // 음수를 포함하지 않음
           primaryKey: true,
@@ -12,29 +12,29 @@ module.exports = class Board extends Sequelize.Model {
           unique: true,
           autoIncrement: true,
         },
-        title: {
-          type: Sequelize.STRING(45),
+        title: { // 커뮤니티 글제목
+          type: Sequelize.STRING(3000),
           allowNull: false,
         },
-        content: {
-          type: Sequelize.STRING(1000),
+        content: { // 커뮤니티 글내용
+          type: Sequelize.STRING(3000),
           allowNull: false,
         },
-        date: {
+        date: { // 커뮤니티 글작성일
           type: Sequelize.DATE,
           allowNull: true,
           defaultValue: Sequelize.NOW,
         },
-        boarder: {
-          type: Sequelize.STRING(30),
+        boarder: { // 커뮤니티 글작성자
+          type: Sequelize.STRING(300),
           // foreignKey: 'id', 관계 표시에 표시함
           allowNull: false,
         },
-        view_count: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          allowNull: true,
-          // defaultValue: Sequelize.NOW,
-        },
+        // view_count: { // 커뮤니티 글조회수
+        //   type: Sequelize.INTEGER.UNSIGNED,
+        //   allowNull: true,
+        //   // defaultValue: Sequelize.NOW,
+        // },
       },
       {
         sequelize,
@@ -52,9 +52,6 @@ module.exports = class Board extends Sequelize.Model {
     // db.Comment.hasMany(db.notice, { foreignKey: 'id', targetKey: 'id' });
     // db.Comment.hasMany(db.professor, { foreignKey: 'id', targetKey: 'id' });
     db.Board.belongsTo(db.User, { foreignKey: "boarder", targetKey: "id" });
-    db.Board.hasMany(db.Comment, {
-      foreignKey: "post_id",
-      targetKey: "post_id",
-    });
+    db.Board.hasMany(db.Comment, { foreignKey: "post_id", sourceKey: "post_id" });
   }
 };

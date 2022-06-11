@@ -2,10 +2,11 @@ const express = require("express");
 const Girugi = require('../models/user');
 const Board = require("../models/board");
 const Comment = require("../models/comment");
+const Notice = require("../models/notice");
+const Faq = require("../models/faq");
 const router = express.Router();
 const moment = require("moment");
 const { now } = require("moment");
-
 // 로그인 확인용 변수
 let IsLogined;
 
@@ -61,20 +62,8 @@ router
     req.session.save(res.redirect("/"));
   });
 
-// 공지사항 전체 리스트
-router.get("/Notice", async (req, res, next) => {
-  const user = await req.session.IsLogined;
-  const Notices = await Board.findAll({
-    order: [["post_id", "DESC"]],
-    offset: 0,
-  });
-  Notices.forEach((el) => {
-    el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
-  });
-  res.render("Notice/notice", { Notices, user });
-});
+// =============================================================================================================================
 
-// 공지사항 전체 리스트
 router.get("/Notice", async (req, res, next) => {
   const user = await req.session.IsLogined;
   const notices = await Notice.findAll({
@@ -98,14 +87,16 @@ router.get("/notice-add", (req, res) => {
 router.post("/Notice", async (req, res, next) => {
   try {
     let body = req.body;
+    console.log("body 는",body);
     await Notice.create({
       title: body.inputTitle,
       content: body.inputContent,
       noticer: body.inputWriter,
     });
+    console.log(body);
     res.redirect("/Notice");
   } catch (err) {
-    next(err);
+    next("에러는 : ",err);
   }
 });
 
@@ -167,7 +158,12 @@ router.delete("/Notice/delete/:postId", async (req, res, next) => {
   return res.send("success");
 });
 
+
 // =========================================================================================================================
+
+
+
+
 // 커뮤니티 전체 리스트
 router.get("/Community", async (req, res, next) => {
   const user = await req.session.IsLogined;
@@ -381,6 +377,7 @@ router.get('/History', (req, res) =>{
   res.render('History/HistoryPage')
 })
 
+// =============================================================================================================================
 
 // FAQ
 // FAQ 전체 리스트
@@ -463,6 +460,11 @@ router.delete("/Faq/delete/:postId", async (req, res, next) => {
   const faq = await Faq.destroy({ where: { post_id: postId } });
   return res.send("success");
 });
+
+
+
+
+
 
 // 체크 해볼 부분임 ================================================================
 router.get("/Schedule", (req, res) => {

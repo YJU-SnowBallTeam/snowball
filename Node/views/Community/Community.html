@@ -1,117 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <link rel="stylesheet" href="/Community.css" />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community</title>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
-</head>
-
-<body>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
-  
-  {% include "../nav.html" %}
-  <!-- <button type="button" class="btn btn-success">Success</button> -->
-  <table class="table table-hover" style="margin-top: 10vw; width: 80vw">
-    <thead>
-      <tr>
-        <th scope="col" style="width: 10vw">번호</th>
-        <th scope="col" style="width: 40vw; text-align: center">제목</th>
-        <th scope="col" style="width: 15vw">글쓴이</th>
-        <th scope="col" style="width: 15vw">작성일</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- {% include "./Community2.njk" %} -->
-      {% for item in boarders %}
-      <tr onclick="location.href='/Community/{{item.post_id}}'" style="cursor: hand">
-        <td scope="row">{{item.post_id}}</td>
-        <td style="width: 40vw; text-align: center">{{item.title}}</td>
-        <td>{{item.boarder}}</td>
-        <td>{{item.date}}</td>
-      </tr>
-      {% endfor %}
-      <!-- <tr>
-            <th scope="row">1</th>
-            <td style="width: 40vw; text-align: left;">Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        -->
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <button type="button" onclick="location.href='/Community-add'" style="cursor: hand" class="btn">
-            글쓰기
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- 추후 자바스크립트로 추가 구현 -->
-  <!-- 추후 맨위로가기 맨아래로가기 구현 -->
-  <!-- <footer>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Fukuoka</th>
-            <th scope="col">Bulletin Board</th>
-            <th scope="col">Schedule</th>
-            <th scope="col">Groups</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-          <tr>
-            <td><a href="">날씨</a></td>
-            <td><a href="">YungStargram</a></td>
-            <td><a href="">학교 일정</a></td>
-            <td><a href="">그룹톡</a></td>
-          </tr>
-          <tr>
-            <td><a href="">연혁</a></td>
-            <td><a href="">공지</a></td>
-            <td><a href="">개인 일정</a></td>
-            <td><a href="">비상연락처</a></td>
-          </tr>
-          <tr>
-            <td><a href="">관광지</a></td>
-            <td><a href=""></a></td>
-            <td><a href="">개인톡</a></td>
-            <td><a href=""></a></td>
-          </tr>
-          <tr>
-            <td><a href="">근처??</a></td>
-            <td><a href=""></a></td>
-            <td><a href=""></a></td>
-            <td><a href=""></a></td>
-          </tr>
-        </tbody>
-    </table>
-</footer> -->
-
-  <!-- <script>
-        const toggleBtn = document.querySelector('.fa-bars');
-        // const menu = document.querySelector('.navbar__menu');
+  <head>
+    <link rel="stylesheet" href="/Community.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    
+    {% include "../nav.html" %}
+    
+    <h1 style="margin-top: 50px">Community</h1>
+    <table class="table table-hover" style="margin-top: 0vw; width: 80vw">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 10vw">번호</th>
+          <th scope="col" style="width: 40vw; text-align: center">제목</th>
+          <th scope="col" style="width: 15vw">글쓴이</th>
+          <th scope="col" style="width: 15vw">작성일</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        {% for item in boarders %}
+        <tr
+          onclick="location.href='/Community/{{item.post_id}}'"
+          style="cursor: hand"
+        >
+          <td scope="row">{{item.post_id}}</td>
+          <td style="width: 40vw; text-align: center">{{item.title}}</td>
+          <td>{{item.boarder}}</td>
+          <td>{{item.date}}</td>
+        </tr>
+        {% endfor %}
         
-
-        toggleBtn.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            // sns.classList.toggle('active');
-        });
-        // toggleBtn.addEventListener('mouseover', () => {
-        //     toggleBtn.style.backgroundColor = 'blue';
-        // })
-        // toggleBtn.addEventListener('hover', () => {
-        //     toggleBtn.style.backgroundColor = 'blue';
-        // })
-    </script> -->
-</body>
-
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <button
+              type="button"
+              onclick="location.href='/Community-add'"
+              style="cursor: hand"
+              class="btn"
+            >
+              글쓰기
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </body>
 </html>

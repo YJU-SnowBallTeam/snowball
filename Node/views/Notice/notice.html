@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="/Notice.css" />
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notice</title>
-    <link rel="stylesheet" href="notice.css" />
-    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./bootstrap.css" /> -->
   </head>
   <body>
     <link
@@ -24,98 +32,36 @@
             <th scope="col" style="width: 15vw">작성일</th>
           </tr>
         </thead>
-        <body>
-          <tr>
-            <th scope="row">1</th>
-            <td style="width: 40vw; text-align: left">Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td style="width: 40vw; text-align: left">Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td style="width: 40vw; text-align: left">Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <a class="btn btn-default pull-right" href="/gongji/writePage"
-            >글쓰기</a
+        <tbody>
+          {% for item in notices%}
+          <tr
+            onclick="location.href='/Notice/{{item.post_id}}'"
+            style="cursor: hand"
           >
-        </body>
+            <th scope="row">{{item.post_id}}</th>
+            <td style="width: 40vw; text-align: left">{{item.title}}</td>
+            <td>{{item.noticer}}</td>
+            <td>{{item.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
       </table>
       <div class="text-center">
-        <ul class="pagination">
+        <button
+          type="button"
+          onclick="location.href='/notice-add'"
+          style="cursor: hand"
+          class="btn"
+        >
+          글쓰기
+        </button>
+        <!-- <ul class="pagination">
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
           <li><a href="#">3</a></li>
           <li><a href="#">4</a></li>
           <li><a href="#">5</a></li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </body>
