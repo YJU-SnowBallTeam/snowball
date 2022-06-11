@@ -1,21 +1,20 @@
 const express = require('express');
-const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 
 const router = express.Router();
 
 // GET / 라우터
 router.get('/', (req, res) => {
-  res.render('MainPage/MainPage.html', { title: 'Express' });
+  res.render('MainPage/MainPage.html');
 });
 
 // 로그인
 router.get('/auth', (req, res) => { 
-  res.render('login/login.html',{title : 'Express'})
+  res.render('login/login.html')
 })
 
 // 회원가입
 router.get('/auth/join', (req, res) => {
-  res.render('Register/signup.html', { title: 'Express' });
+  res.render('Register/signup.html');
 })
 
 router.get('/Community', (req, res) => {
@@ -39,7 +38,4 @@ router.get('/gongji/writePage',(req,res) =>{
   res.render('writePage/writePage')
 })
 
-router.get('/board/post', (req, res) => {
-  res.redirect('/post');
-})
 module.exports = router;

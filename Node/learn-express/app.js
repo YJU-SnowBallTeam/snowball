@@ -8,14 +8,12 @@ const nunjucks = require('nunjucks');
 var fs = require('fs')
 dotenv.config();
 
+// passport
+const passport = require('passport');
+const passportConfig = require('./passport');
+
 const indexRouter = require('./routes');
-// const userRouter = require('./routes/user');
-const loginRouter = require('./routes/login');
 const authRouter = require('./routes/auth');
-// const joinRouter = require('./routes/join');
-const communityRouter = require('./routes/postCommunity');
-
-
 
 
 // 시퀄라이즈 부분
@@ -23,6 +21,8 @@ const { sequelize } = require('./models')
 
 const app = express();
 
+// passport
+passportConfig();
 
 app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname,'public')));
@@ -57,30 +57,15 @@ app.use(session({
   },
   name: 'session-cookie',
 }));
-app.set('view engine','html')
+app.set('view engine', 'html');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 app.use('/', indexRouter);
-// app.use('/user', userRouter);
-// app.use('/login', loginRouter);
 app.use('/auth', authRouter);
-app.use('/community', communityRouter);
-// app.use('/join', joinRouter);
 
-
-
-// app.get('/Community',(req,res)=>{
-//   return res.render('Community/Community')
-// })
-// app.get('/Schedule',(req,res)=>{
-//   return res.render('Schedule/Schedule')
-// })
-// app.get('/register',(req,res)=>{
-//   return res.render('Register/signup')
-// })
-// app.get('/schedule',(req,res)=>{
-//   return res.render('Schedule/schedule')
-// })
 
 app.get('/map',(req,res)=>{
   return res.end(fs.readFileSync('views/MapPage/MapPage.html'))

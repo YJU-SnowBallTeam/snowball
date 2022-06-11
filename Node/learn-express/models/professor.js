@@ -3,21 +3,21 @@ const Sequelize = require('sequelize');
 module.exports = class Professor extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      professorId: {
-        type: Sequelize.STRING(30),
+      professorId: { // 교수 아이디
+        type: Sequelize.STRING(300),
         primaryKey : true,
         allowNull : false,
         unique : true,
     },
-    class: {
-        type: Sequelize.STRING(30),
+    class: { // 교수 반
+        type: Sequelize.STRING(300),
         allowNull: false,
     },
-    name: {
-        type: Sequelize.STRING(30),
+    name: { // 교수 명
+        type: Sequelize.STRING(300),
         allowNull: false,
     },
-    tell: {
+    tell: { // 교수 전화번호
         type: Sequelize.INTEGER,
         unique:true,
         allowNull: false,

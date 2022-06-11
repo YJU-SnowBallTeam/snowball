@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = class Notice extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      post_id: {
+      post_id: { // 공지 글번호
         type: Sequelize.INTEGER.UNSIGNED,
         // 음수를 포함하지 않음
         primaryKey : true,
@@ -11,20 +11,20 @@ module.exports = class Notice extends Sequelize.Model {
         unique : true,
         autoIncrement: true,
     },
-    title: {
-        type: Sequelize.STRING(45),
+    title: { // 공지 제목
+        type: Sequelize.STRING(5000),
         allowNull: false,
     },
-    comment: {
-      type: Sequelize.STRING(1000),
+    content: { // 공지 내용
+      type: Sequelize.STRING(5000),
         allowNull: false,
     },
-    noticer: {
-      type: Sequelize.STRING(30),
+    noticer: { // 공지 작성자
+      type: Sequelize.STRING(300),
         // foreignKey: 'id', 관계 표시에 표시함
         allowNull: false,
       },
-    date: {
+    date: { // 공지 작성일
       type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,

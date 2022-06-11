@@ -4,13 +4,13 @@ module.exports = class Login extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             id: {
-                type: Sequelize.STRING(30),
+                type: Sequelize.STRING(300),
                 primaryKey : true,
                 allowNull : false,
                 unique : true,
               },
             passwd: {
-                type: Sequelize.STRING(45),
+                type: Sequelize.STRING(300),
                 allowNull: false,
             },
             

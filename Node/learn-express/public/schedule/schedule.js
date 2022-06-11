@@ -96,6 +96,7 @@ const allCal = document.querySelector('#all_cal')
 const time = document.querySelector('#time')
 const timeDiv = document.querySelector('#timeDiv')
 const formTag = document.querySelector('#formtag')
+
 $('.day').click(function(){ 
 
     var get12 = $(this).attr('value'); 
@@ -193,6 +194,9 @@ function clickEvent(){
     
 }
 
-$('#all_cal').on("click",clickEvent)
+$('#all_cal').on("click", clickEvent)
+
+
+
 
 // https://songsong.dev/11

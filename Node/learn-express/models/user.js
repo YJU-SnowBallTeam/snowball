@@ -3,51 +3,51 @@ const Sequelize = require('sequelize');
 module.exports = class User extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      id: {
-        type: Sequelize.STRING(30),
+      id: { // user id
+        type: Sequelize.STRING(300),
         primaryKey : true,
         allowNull : false,
         unique: true,
         comment: "user id",
       },
-      passwd: {
+      passwd: { // user password
         type: Sequelize.STRING(300),
         allowNull: false,
       },
-      name: {
-        type: Sequelize.STRING(20),
+      name: { // user name
+        type: Sequelize.STRING(200),
         allowNull: false,
       },
-      tel: {
+      tel: { // user tel
         type: Sequelize.INTEGER,
         allowNull: false,
         unique : true,
       },
-      grade: {/* 등급 */
-        type: Sequelize.STRING(20),
+      grade: { // user grade (등급)
+        type: Sequelize.STRING(200),
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING(30),
+      email: { // user email
+        type: Sequelize.STRING(300),
         allowNull: false,
         unique : true,
       },
-      yjuclass: {
-        type: Sequelize.STRING(20),
+      yjuclass: { // user yju class(반)
+        type: Sequelize.STRING(200),
         allowNull: false,
       },
-      github: {
-        type: Sequelize.STRING(30),
+      github: { // user github주소
+        type: Sequelize.STRING(300),
         allowNull: true,
         unique : true,
       },
-      instagram: {
-        type: Sequelize.STRING(30),
+      instagram: { // user instagram주소
+        type: Sequelize.STRING(300),
         allowNull: true,
         unique : true,
       },
-      kakao: {
-        type: Sequelize.STRING(30),
+      kakao: { // user kakao주소
+        type: Sequelize.STRING(300),
         allowNull: true,
         unique : true,
       },
@@ -68,10 +68,20 @@ module.exports = class User extends Sequelize.Model {
     // db.User.hasMany(db.Notice, { foreignKey : 'noticer',sourceKey:'id' });
     // db.User.hasMany(db.Professor, { foreignKey: 'professorId', sourceKey : 'id' });
   
+    // 커뮤니티댓글 테이블(Commenter)의 commenter와 연결 n : 1
     db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
+    // 커뮤니티글 테이블(Board)의 boarder와 연결 n : 1
     db.User.hasMany(db.Board, { foreignKey: 'boarder', sourceKey: 'id' });
-    db.User.hasMany(db.Notice, {foreignKey: 'noticer', sourceKey: 'id' });
+    // 공지글 테이블(Notice)의 noticer와 연결  n : 1
+    db.User.hasMany(db.Notice, { foreignKey: 'noticer', sourceKey: 'id' });
+    // 교수 테이블(Professor)의 professorId와 연결 1 : 1
     db.User.hasOne(db.Professor, { foreignKey: 'professorId', sourceKey: 'id' });
+    // Q&A글 테이블(Qboard)의 boarder와 연결 n : 1
+    db.User.hasMany(db.Qboard, { foreignKey: 'boarder', sourceKey: 'id' });
+    // Q&A댓글 테이블(Qcomment)의 commenter와 연결 n : 1
+    db.User.hasMany(db.Qcomment, { foreignKey: 'commenter', sourceKey: 'id' });
+    // FAQ글 테이블(Faq)의 boarder와 연결 n : 1
+    db.User.hasMany(db.Faq, { foreignKey: 'boarder', sourceKey: 'id' });
 
   }
 };
