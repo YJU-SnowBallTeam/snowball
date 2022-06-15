@@ -1,6 +1,5 @@
 async function hello() {
     const isLogined = await axios.post('/').then((res) => res.data)
-    console.log(isLogined)
     return isLogined;
 }
 hello()
@@ -122,9 +121,7 @@ console.log(curYear + curMonth);
 $('.day').click(function(){ 
 
     var get12 = $(this).attr('value'); 
-    
-    var get22 = $(this).text();
-    
+
     console.log(get12);
     
     })

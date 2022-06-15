@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Ryutlgja%%66",
-    "database": "SnowBallTeam",
+    "database": "snowballteam",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -21,3 +21,5 @@
     "dialect": "mysql"
   }
 }
+
+/* 서버에서 실행시 비밀번호, username , database명 변경 */

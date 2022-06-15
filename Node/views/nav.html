@@ -71,7 +71,6 @@
    const aTag = document.querySelectorAll('.aTag')
     async function hello() {
         const isLogined = await axios.post('/').then((res) => res.data)
-        console.log("세션은 : ", isLogined)
         let checkLogin = isLogined.IsLogined;
         [].forEach.call(aTag, function (col) {
             col.addEventListener("click", click, false);

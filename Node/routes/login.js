@@ -44,14 +44,14 @@ router.route('/')
 
 
 
-router.post("/user", async (req,res) =>{
-  let result = await model.User.findOne({
-    where: {
-      id : body.id,
-      passwd : body.passwd
-    }
-  })
-  console.log(result);
-})
+// router.post("/user", async (req,res) =>{
+//   let result = await model.User.findOne({
+//     where: {
+//       id : body.id,
+//       passwd : body.passwd
+//     }
+//   })
+//   console.log(result);
+// })
 
 module.exports = router;

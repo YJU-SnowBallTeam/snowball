@@ -3,15 +3,14 @@ document.getElementById("login-tag").addEventListener("submit", async (e) => {
 
   const id = e.target.id.value;
   const passwd = e.target.pw.value;
-  console.log("id : ", id);
-  console.log("pw : ", passwd);
-
+  // console.log("id : ", id);
+  // console.log("pw : ", passwd);
   try {
     const user = await axios.post("/login", { id, passwd }).then((res) => {
       return res.data;
       /* routes/login.js에서 받아온 유저 데이터 */
     });
-    console.log(user);
+    // console.log(user);
     if (user !== false) {
       if (user === "falsed") {
         return alert("비번틀림");

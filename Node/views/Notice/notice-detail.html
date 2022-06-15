@@ -97,7 +97,7 @@
         axios
           .get(`/Notice/update/${postId}`)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             location.href = `/Notice/update/${postId}`;
           })
           .catch((err) => console.log(err));
