@@ -36,9 +36,5 @@ router
     }
   });
 
-// GET /user 라우터
-router.get("/", (req, res) => {
-  console.log(req.body);
-});
 
 module.exports = router;

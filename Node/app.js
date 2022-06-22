@@ -12,6 +12,8 @@ dotenv.config();
 const indexRouter = require("./routes");
 const userRouter = require("./routes/user");
 const loginRouter = require("./routes/login");
+// const noticesRouter = require("./routes/Notice");
+// const CommunityRouter = require("./routes/Community");
 
 // 시퀄라이즈 부분
 const { sequelize } = require("./models");
@@ -45,19 +47,17 @@ sequelize
   });
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: false,
-    secret: process.env.COOKIE_SECRET,
-    cookie: {
-      httpOnly: true,
-      secure: false,
-      maxAge: 30000,
-    },
-    name: "session-cookie",
-  })
-);
+app.use(session({
+  secret: process.env.COOKIE_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    maxAge: 30000,
+  },
+  name: "session-cookie",
+}));
 app.set("view engine", "html");
 
 nunjucks.configure("views", {
@@ -68,6 +68,8 @@ nunjucks.configure("views", {
 app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/login", loginRouter);
+// app.use('/Notice', noticesRouter);
+// app.use('/Community', CommunityRouter);
 
 app.get("/map", (req, res) => {
 
@@ -90,3 +92,5 @@ app.use((err, req, res, next) => {
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
 });
+
+

@@ -8,7 +8,7 @@ const router = express.Router();
 const moment = require("moment");
 const { now } = require("moment");
 // 로그인 확인용 변수
-let IsLogined;
+// let IsLogined;
 
 // GET / POST 라우터
 router
@@ -63,6 +63,7 @@ router
   });
 
 // =============================================================================================================================
+
 
 router.get("/Notice", async (req, res, next) => {
   const user = await req.session.IsLogined;
@@ -158,7 +159,6 @@ router.delete("/Notice/delete/:postId", async (req, res, next) => {
   return res.send("success");
 });
 
-
 // =========================================================================================================================
 
 
@@ -171,7 +171,7 @@ router.get("/Community", async (req, res, next) => {
     order: [["post_id", "DESC"]],
     offset: 0,
   });
-  boarders.forEach((el) => {
+  boarders.forEach((el) => {  
     el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
   });
   res.render("Community/Community", { boarders, user });

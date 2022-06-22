@@ -59,30 +59,10 @@
             {% if user === null or user === undefined %}
             <li class="home"><a href="/login">{{Yeah}}</a></li>
             {% else %}
-            <li class="home"><a href="/logout">logout</a></li>
+            <li class="home"><a href="/login/logout">logout</a></li>
             {% endif %}
             {% endblock %}
         </ul>
     </div>
 </nav>
 
-<script>
-   
-   const aTag = document.querySelectorAll('.aTag')
-    async function hello() {
-        const isLogined = await axios.post('/').then((res) => res.data)
-        let checkLogin = isLogined.IsLogined;
-        [].forEach.call(aTag, function (col) {
-            col.addEventListener("click", click, false);
-        });
-        function click(e){ 
-            if (checkLogin == null || undefined) {
-                alert('로그인 후 이용해주세요')
-                event.preventDefault();
-            }
-        }
-        
-        return isLogined;
-    }
-    hello();    
-</script>

@@ -1,8 +1,4 @@
-async function hello() {
-    const isLogined = await axios.post('/').then((res) => res.data)
-    return isLogined;
-}
-hello()
+
 
 window.onload = function() {
     calendarInit();
