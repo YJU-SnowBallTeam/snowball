@@ -6,11 +6,8 @@ module.exports = class Qcomment extends Sequelize.Model {
       {
         post_id: { // Q&A 글번호 외래키
           type: Sequelize.INTEGER.UNSIGNED,
-          // 음수를 포함하지 않음
-          // primaryKey: true,
           allowNull: false,
           unique: false,
-          // autoIncrement: true,
         },
         comment_id: { // 기본키, Q&A 댓글번호
           type: Sequelize.INTEGER.UNSIGNED,

@@ -77,11 +77,6 @@ module.exports = class User extends Sequelize.Model {
   }
 
   static associate(db) {
-    // db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
-    // db.User.hasMany(db.Board, { foreignKey: 'boarder', sourceKey: 'id' });
-    // db.User.hasMany(db.Notice, { foreignKey : 'noticer',sourceKey:'id' });
-    // db.User.hasMany(db.Professor, { foreignKey: 'professorId', sourceKey : 'id' });
-
     // 커뮤니티댓글 테이블(Commenter)의 commenter와 연결 n : 1
     db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
     // 커뮤니티글 테이블(Board)의 boarder와 연결 n : 1

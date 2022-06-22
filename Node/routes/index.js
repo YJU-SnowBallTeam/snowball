@@ -7,10 +7,7 @@ const Faq = require("../models/faq");
 const router = express.Router();
 const moment = require("moment");
 const { now } = require("moment");
-// 로그인 확인용 변수
-// let IsLogined;
 
-// GET / POST 라우터
 router
   .route("/")
   .post(async (req, res) => {
@@ -195,25 +192,18 @@ router.post("/Community", async (req, res, next) => {
       boarder: body.inputWriter,
     });
     res.redirect("/Community");
-    //  return res.status(200).send("success");
   } catch (err) {
     next(err);
   }
 });
 
-// router.get("/products/:productId", shopController.getProduct);
+
 // select
 router.get("/Community/:postId", async (req, res, next) => {
   try {
     const user = await req.session.IsLogined;
     const { postId } = req.params;
     const board = await Board.findOne({ where: { post_id: postId } });
-    //   밑에 날짜 처리하니 깨짐
-    // console.log(Board.dataValues);
-    // board.dataValues.date = moment(board.dataValues.date).format("YYYY-MM-DD");
-    //   boarders.forEach((el) => {
-    //     el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
-    //   });
     const comments = await Comment.findAll({
       where: { post_id: postId },
       order: [["post_id", "DESC"]],
