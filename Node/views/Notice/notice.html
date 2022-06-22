@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/Notice.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./bootstrap.css" /> -->
+  </head>
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    {% include "../nav.html" %}
+    <h1 style="text-align: center">공지사항</h1>
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 10vw">번호</th>
+            <th scope="col" style="width: 40vw">제목</th>
+            <th scope="col" style="width: 15vw">글쓴이</th>
+            <th scope="col" style="width: 15vw">작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in notices%}
+          <tr
+            onclick="location.href='/Notice/{{item.post_id}}'"
+            style="cursor: hand"
+          >
+            <th scope="row">{{item.post_id}}</th>
+            <td style="width: 40vw; text-align: left">{{item.title}}</td>
+            <td>{{item.noticer}}</td>
+            <td>{{item.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button
+          type="button"
+          onclick="location.href='/notice-add'"
+          style="cursor: hand"
+          class="btn"
+        >
+          글쓰기
+        </button>
+       
+      </div>
+    </div>
+  </body>
+</html>

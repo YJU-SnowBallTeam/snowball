@@ -1,0 +1,137 @@
+* {
+  margin: 0 auto;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+
+nav ul {
+  width: 100%;
+  background-color: black;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+.home {
+  background-color: darkorange;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  float: right;
+}
+
+.home a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 16px 16px;
+}
+
+.dropdown1 {
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  #ultag {
+    text-align: center;
+  }
+  nav {
+    vertical-align: middle;
+  }
+  .columm {
+    vertical-align: middle;
+  }
+  /* .dropdown1{
+          display: none;
+      } */
+
+  a.navbar__toggleBtn {
+    margin-top: 12px;
+    display: inline-block;
+  }
+  li.home {
+    display: none;
+  }
+}
+
+.dropdown1-menu {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown1-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-height: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.dropdown1-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown1-menu:hover:not(.home) {
+  background-color: darkorange;
+  color: white;
+}
+
+.dropdown1:hover .dropdown1-content {
+  width: 100%;
+  display: block;
+}
+
+.dropdown1-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.navbar__toggleBtn {
+  display: none;
+  font-size: 24px;
+  color: #f1f1f1 !important;
+}
+.navbar__logo1 {
+  margin-left: 20px;
+  margin-top: 10px;
+  float: left;
+}
+
+.table {
+  margin-top: 40px;
+  text-align: center;
+  width: 70vw !important;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  border: 1px solid #ccc;
+}
+
+.table td a {
+  color: black;
+}
+
+#tbody {
+  font-size: 10px;
+}
+
+#undernav {
+  float: left;
+  overflow: hidden;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+}

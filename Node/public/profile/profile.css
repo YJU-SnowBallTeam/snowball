@@ -1,0 +1,39 @@
+li {
+    list-style: none;
+}
+html, body {
+        width: 100%;
+        height: 100%;
+        background-color:lightblue;
+      }
+.profile-box {
+    
+
+    width: 535px;
+    height: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    border: 2px solid rgb(66, 65, 65);
+    background-image: url("yjpLogo.png");
+
+}
+#my-info{
+    padding-left: 70px;
+    padding-top: 90px;
+    left: 30px;
+    top: 70px;
+    font-size: 25px;
+}
+
+#rappedDiv{
+    width:100%;
+    height:100%;
+}
+
+#sns-form{
+    padding-left: 50px;
+    
+    padding-top: 120px;
+    
+}

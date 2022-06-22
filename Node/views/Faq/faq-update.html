@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ-update</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+</head>
+<link rel="stylesheet" href="/Notice.css" />
+
+<body>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
+  {% include "../nav.html" %}
+  <section>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet" />
+    <form action="/Faq/update/{{faq.post_id}}?_method=PUT" method="POST">
+      <div class="container" style="margin-top: 20vh;">
+        <h2>FAQ 글수정</h2>
+        
+        <div class="form-group">
+          <label for="title">질문</label>
+          <input type="text" class="form-control" id="title" placeholder="{{faq.question}}" name="inputQuestion"
+            maxlength="100" required="required" pattern=".{4,100}" value="{{faq.question}}">
+          <input type="hidden" value="{{user.id}}" class="user-id" />
+          <input type="hidden" value="{{faq.post_id}}" class="post-id" />
+        </div>
+        <div class="form-group">
+          <label for="content">대답</label>
+
+          <textarea type="text" class="form-control" id='conid' placeholder="내용 입력(4-100)" name="inputAnswer"
+            required="required" style=" height:500px;">
+            {{faq.answer}}
+          </textarea>
+
+        </div>
+        <input type="hidden" name="inputWriter" placeholder="작성자 ID" value="{{user.id}}" class="id" readonly />
+    </form>
+    <input type="submit" value="수정" id="update" style="float : left; border-right: 10vh;" />
+    </div>
+  </section>
+  <script>
+		const userGrade = document.querySelector(".user-grade").value;
+    window.onload = function () {
+			const userGrade = document.querySelector(".user-grade").value;
+			if (userGrade != 3) {
+          alert("관리자 권한이 없습니다.");
+          window.location.href = `/Faq/${postId}`;
+			}
+    };
+
+    document.getElementById("update").addEventListener("click", function () {
+      // const noticeId = document.querySelector(".id").value;
+      const postId = document.querySelector(".post-id").value;
+      const formData = new FormData();
+      formData.append("inputQuestion", this.inputQuestion);
+      formData.append("inputWriter", this.inputWriter);
+      formData.append("inputAnswer", this.inputAnswer);
+      axios
+        .put(`/Faq/update/${postId}`, formData)
+        .then(() => {
+          // window.location.href = "http://localhost:4301/Community";
+          console.log("success");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  </script>
+</body>
+
+</html>

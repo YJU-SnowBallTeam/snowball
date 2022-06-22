@@ -1,0 +1,8 @@
+{% for item in boarders %}
+	<tr>
+		<td scope="row">{{item.post_id}}</td>
+		<td style="width: 40vw; text-align: left;">{{item.title}}</td>
+		<td>{{item.boarder}}</td>
+		<td>{{item.date}}</td>
+	</tr>
+{% endfor %}
