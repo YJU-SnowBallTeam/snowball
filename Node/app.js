@@ -12,7 +12,7 @@ dotenv.config();
 const indexRouter = require("./routes");
 const userRouter = require("./routes/user");
 const loginRouter = require("./routes/login");
-// const noticesRouter = require("./routes/Notice");
+const noticesRouter = require("./routes/Notice");
 const CommunityRouter = require("./routes/Community");
 
 // 시퀄라이즈 부분

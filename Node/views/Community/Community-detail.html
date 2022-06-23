@@ -94,16 +94,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
-    let today = new Date();
-
-    let year = today.getFullYear(); // 년도
-    let month = today.getMonth() + 1; // 월
-    let date = today.getDate();
-    let day = (String(month) + '월' + String(date) + '일');
-    // console.log(day);
-    window.onload = () => {
-      document.querySelector('#dateVal').innerHTML = day;
-    }
+    
 
     const postId = document.querySelector(".post-id").value;
     const userId = document.querySelector('.user-id').value;

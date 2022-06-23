@@ -54,12 +54,15 @@ router.get("/:postId", async (req, res, next) => {
             order: [["post_id", "DESC"]],
             offset: 0,
         });
-
+        // board.forEach((el) => {
+        //     el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
+        // });
+        console.log("board 는 ",board);
         comments.forEach((el) => {
             el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
         });
 
-        console.log(comments);
+        console.log("Comment는 : ",comments);
         res.render("Community/Community-detail", { board, comments, user });
     } catch (err) {
         next(err);
