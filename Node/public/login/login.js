@@ -14,7 +14,7 @@ addEventListener("submit", async (e) => {
         return alert("비번틀림");
       }
       // 로그인 성공시
-      location.href = '/login/logined';
+      location.href = '/';
     } else {
       alert("로그인 실패, 다시입력");
       e.target.id.value = "";

@@ -13,13 +13,13 @@ const { now } = require("moment");
 // GET / POST 라우터
 router
   .route("/")
-  .post(async (req, res) => {
-    console.log("req.method", req.method);
-    console.log("post.(/)의 IsLogined", IsLogined);
-    req.session.IsLogined = IsLogined;
-    console.log("post.(/)의 req session", req.session);
-    return res.send(req.session);
-  })
+  // .post(async (req, res) => {
+  //   console.log("req.method", req.method);
+  //   console.log("post.(/)의 IsLogined", IsLogined);
+  //   req.session.IsLogined = IsLogined;
+  //   console.log("post.(/)의 req session", req.session);
+  //   return res.send(req.session);
+  // }) 없어도 잘 돌아가는 거 같음.(post 요청이 없음.)
   .get(async (req, res) => {
     try {
       const user = await req.session.IsLogined;
@@ -126,10 +126,6 @@ router.delete("/Notice/delete/:postId", async (req, res, next) => {
   const notice = await Notice.destroy({ where: { post_id: postId } });
   return res.send("success");
 });
-
-// =========================================================================================================================
-
-
 
 
 router.get('/History', (req, res) =>{

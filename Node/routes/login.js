@@ -41,13 +41,14 @@ router.get("/register", (req, res) => {
   res.render("Register/signup");
 });
 
-router
-  .route("/logined")
-  .get((req, res) => {
-    req.session.save(() => {
-      res.redirect("/");
-    });
-  })
+// router
+//   .route("/logined")
+//   .get((req, res) => {
+//     // req.session.save(() => {
+//     //   res.redirect("/");
+//     // });
+//     res.redirect("/");
+//   })
 
 router.get("/logout", (req, res) => {
   req.session.destroy( err => {
