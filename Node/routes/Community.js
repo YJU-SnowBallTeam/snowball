@@ -15,6 +15,7 @@ router.route("/")
             order: [["post_id", "DESC"]],
             offset: 0,
         });
+        console.log(boarders);
         boarders.forEach((el) => {
             el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
         });
@@ -155,23 +156,6 @@ router.put("/comment/update/:commentId", async (req, res, next) => {
         next(err);
     }
 });
-
-// 삭제
-router.delete("/delete/:postId", async (req, res, next) => {
-    const { postId } = req.params;
-    const board = await Board.destroy({ where: { post_id: postId } });
-    return res.send("success");
-});
-
-// 삭제 comment
-router.delete(
-    "/comment/delete/:commentId",
-    async (req, res, next) => {
-        const { commentId } = req.params;
-        const comment = await Comment.destroy({ where: { comment_id: commentId } });
-        return res.send("delete comment success");
-    }
-);
 
 // 삭제
 router.delete("/delete/:postId", async (req, res, next) => {

@@ -69,7 +69,7 @@ nunjucks.configure("views", {
 app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/login", loginRouter);
-// app.use('/Notice', noticesRouter);
+app.use('/Notice', noticesRouter);
 app.use('/Community', CommunityRouter);
 app.use('/Faq', faqRouter);
 

@@ -33,7 +33,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for item in notices%}
+          {% for item in notices %}
           <tr
             onclick="location.href='/Notice/{{item.post_id}}'"
             style="cursor: hand"
@@ -49,7 +49,7 @@
       <div class="text-center">
         <button
           type="button"
-          onclick="location.href='/notice-add'"
+          onclick="location.href='Notice/notice-add'"
           style="cursor: hand"
           class="btn"
         >
