@@ -14,6 +14,7 @@ const userRouter = require("./routes/user");
 const loginRouter = require("./routes/login");
 const noticesRouter = require("./routes/Notice");
 const CommunityRouter = require("./routes/Community");
+const faqRouter = require("./routes/Faq");
 
 // 시퀄라이즈 부분
 const { sequelize } = require("./models");
@@ -70,6 +71,7 @@ app.use("/user", userRouter);
 app.use("/login", loginRouter);
 // app.use('/Notice', noticesRouter);
 app.use('/Community', CommunityRouter);
+app.use('/Faq', faqRouter);
 
 app.get("/map", (req, res) => {
 
