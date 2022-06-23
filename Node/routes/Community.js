@@ -57,12 +57,7 @@ router.get("/:postId", async (req, res, next) => {
         comments.forEach((el) => {
             el.dataValues.date = moment(el.dataValues.date).format("YYYY-MM-DD");
         });
-        console.log("Comment는 : ",comments);
-
-        board.dataValues.date = moment(board.dataValues.date).format("YYYY-MM-DD");
-        console.log(board);
-        
-
+        board.dataValues.date = moment(board.dataValues.date).format("YYYY년 MM월 DD일");
         res.render("Community/Community-detail", { board, comments, user });
     } catch (err) {
         next(err);
@@ -109,10 +104,6 @@ router.get("/:postId/update", async (req, res, next) => {
 router.put("/update/:postId", async (req, res, next) => {
     try {
         let body = req.body;
-        console.log("=========================");
-        console.log(body);
-        console.log(body.inputContent);
-        console.log("=========================");
         await Board.update(
             {
                 //   post_id: this.post_id,
@@ -149,10 +140,6 @@ router.get("/comment/update/:comment_id", async (req, res, next) => {
 router.put("/comment/update/:commentId", async (req, res, next) => {
     try {
         let body = req.body;
-        console.log("=========================");
-        console.log(body);
-        console.log(body.inputContent);
-        console.log("=========================");
         await Comment.update(
             {
                 content: body.inputContent,
@@ -172,9 +159,6 @@ router.put("/comment/update/:commentId", async (req, res, next) => {
 // 삭제
 router.delete("/delete/:postId", async (req, res, next) => {
     const { postId } = req.params;
-    console.log("====================");
-    console.log(postId);
-    console.log("====================");
     const board = await Board.destroy({ where: { post_id: postId } });
     return res.send("success");
 });
@@ -185,7 +169,6 @@ router.delete(
     async (req, res, next) => {
         const { commentId } = req.params;
         const comment = await Comment.destroy({ where: { comment_id: commentId } });
-        // res.redirect("/Community/" + req.params.postId);
         return res.send("delete comment success");
     }
 );
@@ -193,9 +176,6 @@ router.delete(
 // 삭제
 router.delete("/delete/:postId", async (req, res, next) => {
     const { postId } = req.params;
-    console.log("====================");
-    console.log(postId);
-    console.log("====================");
     const board = await Board.destroy({ where: { post_id: postId } });
     return res.send("success");
 });
@@ -206,7 +186,6 @@ router.delete(
     async (req, res, next) => {
         const { commentId } = req.params;
         const comment = await Comment.destroy({ where: { comment_id: commentId } });
-        // res.redirect("/Community/" + req.params.postId);
         return res.send("delete comment success");
     }
 );
