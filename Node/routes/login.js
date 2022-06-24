@@ -1,6 +1,6 @@
 const express = require('express');
 const { User } = require('../models');
-
+const bcrypt = require("bcrypt");
 
 const router = express.Router();
 
@@ -14,8 +14,13 @@ router.route('/')
             id: req.body.id,
           }
         });
+        console.log(req.body.passwd);
+      
+        console.log("userpasswd",user.passwd);
+        const check = await bcrypt.compare(req.body.passwd, user.passwd)
+      
         if (user) {
-          if (user.passwd == req.body.passwd) {
+          if (check) {
             req.session.IsLogined = user;
             await res.status(201).json(user)
           } else {

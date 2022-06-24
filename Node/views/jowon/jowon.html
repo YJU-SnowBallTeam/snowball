@@ -9,20 +9,15 @@
     <title>조원소개</title>
 </head>
 
-<body class="sex">
+<body class="bodyTag">
     <video id="video" preload="auto" autoplay loop muted="muted">
         <source src="Profile_sources/girogi.mp4" />
     </video>
     <center>
         <h1 id="girogi">5조의 기러기들....</h1>
         <div class="card">
-            <!-- {% set name = ‘’ %}
-                    {% set tel = ‘’ %}
-                    {% set email = ‘’ %}
-                    {% set grade = ‘’ %}
-                    {% set class = ‘’ %} -->
             <div id="jo1">
-                <li id="name" style="font-weight: bold; font-size: 22px;">死{{user[1].name}}死</li>
+                <li id="name" style="font-weight: bold; font-size: 22px;">{{user[1].name}}</li>
                 <li id="duty" style="color: white" class="li-body">DB</li>
                 <li id="tel" style="color: white" class="li-body">전화 번호: {{user[1].tel}}</li>
                 <li id="email" style="color: white" class="li-body">이메일: {{user[1].email}}</li>
@@ -45,6 +40,7 @@
                         </svg></a>
                 </div>
             </div>
+            
             <div id="jo2">
                 <li id="name" style="font-weight: bold; font-size: 22px;">{{user[4].name}}</li>
                 <li id="duty" style="color: white" class="li-body">프론트엔드</li>
@@ -69,13 +65,16 @@
                         </svg></a>
                 </div>
             </div>
+
             <div id="jo3">
-                <li id="name" style="font-weight: bold; font-size: 22px;">死{{user[2].name}}</li>
+
+                <li id="name" style="font-weight: bold; font-size: 22px;">{{user[2].name}}</li>
                 <li id="duty" style="color: white" class="li-body">백엔드</li>
                 <li id="tel" style="color: white" class="li-body">전화 번호: {{user[2].tel}}</li>
                 <li id="email" style="color: white" class="li-body">이메일: {{user[2].email}}</li>
                 <li id="grade" style="color: white" class="li-body">학년: {{user[2].grade}}</li>
                 <li id="class" style="color: white" class="li-body">반: {{user[2].yjuclass}}</li>
+                
                 <div>
                     <a href="https://www.instagram.com/{{user[2].instagram}}"><svg style="color: rgb(243, 57, 209);"
                             xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"

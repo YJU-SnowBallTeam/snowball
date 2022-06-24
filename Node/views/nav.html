@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="nav.css">
 <nav style="text-align : center; justify-content: center; background-color: rgba(44, 42, 39, 0.983); z-index: 3">
+    <input type="hidden" value="{{user}}" class="user" />
     <div class="columm1" style="margin: auto;">
         <ul id="ultag">
             <li class="navbar__logo1">
@@ -65,4 +66,19 @@
         </ul>
     </div>
 </nav>
+<script>
+    const user = document.querySelector('.user').value;
+    const dropdown1 = document.querySelectorAll('.aTag');
 
+    [].forEach.call(dropdown1, function (col) {
+        col.addEventListener("click", click, false);
+    });
+    function click(e) {
+        if (user) {
+
+        } else {
+            e.preventDefault();
+            alert('로그인 후 이용해주세요')
+        }
+    }
+</script>

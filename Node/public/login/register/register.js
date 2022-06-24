@@ -27,11 +27,10 @@ document.getElementById("user-form").addEventListener("submit", async (e) => {
       .post("/user", {
         id,
         passwd,
-        pwcheck,
         name,
         tel,
         email,
-        yjuclass /*grade*/,
+        yjuclass,
         insta,
         github,
       })
