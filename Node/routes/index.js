@@ -56,10 +56,6 @@ router.get("/profile", (req, res) => {
   res.render("profile/profile", {user});
 });
 
-router.route('/jowon').get( async (req, res)=>{
-      await res.redirect('/girugi')
-    }
-)
 
 router.get('/girugi',async (req,res) => {
     console.log('실행');
