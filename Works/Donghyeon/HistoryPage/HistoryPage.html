@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="HistoryPage.css" ></link>
+</head>
+<body>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="폰트어썸 본인 CDN"
+    crossorigin="anonymous">
+    <nav style="text-align : center; justify-content: center; background-color: rgba(44, 42, 39, 0.983); z-index: 3">
+        <div class = "columm1" style="margin: auto;">
+        <ul id = "ultag">
+            <li class="navbar__logo1">
+                <div style="width: 25px; display: inline-block; margin-top: 2px;">
+                <a href="/" style="text-decoration: none; width: 30px;">
+                    <img style="border-radius: 20px; width: 100%;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN8AAADiCAMAAAD5w+JtAAAAkFBMVEX///8Af6AAfZ8Ad5sAep0Ae50AdpsAeJsAfaAAdJoAgaL4/P37/v72+/zx+PrT5uyCtsjj7/Pp8/ZWnraaxNLG3ubX6O7k8PSoyteSv89oqL6mytdLm7S31d+y0t1lorkwjqt2sMQ3ka4eiKfA2+SIussAbZWVwM9Sm7V+ssZ0q8CixdNFlbFlqsE3j6yz1uFs1wlOAAAgAElEQVR4nO19C3equtboIgnhIYKCoKIiitZq2b3//9/dmRcQQERt99rfGGeeM/ZqLSAzme9X/vz5H/wP/gf/g//L4CdBfMpWCw6r7BQHc/9vv9NPQBhk59vRdRyHYmpZhINlYYyp47jlbZ0F4d9+x9fAm2fnLQJcTBMhZJoWBgzh/5j9H2PCPjbZx5a7Pe/mf/t1n4JpsNi6gAMC/DAlxXeUnr+y3SmOA4A4Pu2yr/M/n98FoZgQmxBM3Ogrmfzt9x4F803kYouj5n6ni93cv/veUz/ZLdLcwJaJAEk3Wv3XiTWY5ZThRs38miUjRYifbA4FwUCwFj6uk999wzcgmLmUwL7R/Bw/LR3D06xwMBCrU6z/i9wYLgqHIBOTNOvgFszKfL+rfv0keXQ9L05Be4PDbG9RE1DMN/8x7RFHmCHnHuKeP94Acfhjqd455wKVgBS1nKx1rXdKbYwQxmnwy688Hqabgr2SnZ489ZHfwPOADYKpbZBcfsDVA0IGABbXLS5JdesfbxcRDOtxzOrP/iKEZ0DNxBpJRYZTScLEMcghnEemgS/ik3i3uhyiY24YCAtWyzEt0l39AH+RAydj9zL9d3C4D+GBWCBSdGqaOgau2G1mopz9m8OGabeeiEHE9oUfsJUmxeW6fgxQPHAiOv9VRvQPTGDic0ttfRHDTNUvW4T+Yf8uiEGbqzDHBpWLsLy6DlC4AXrF3VfPWs6Apwk5/zW1PzmD4LDcRZtNfMZbhfqtRITjFwMbruuLPNfG5/rX5WYPTGcYNm48aLqGzwhZ/MbLP4YNsgC7TfcPW8Ikh9LTe4RK9m9MDZTWF6VEfNyABDgS77WPJheD8WFbyv4LEBewH6izd7Axe8suDIN8yd8XFrIZzZ2JgY717dSgbTV+Awo+tKlxegYupOW/bNX4KRCONetjflAHOCwMtFWXAmeVy8mObapbXZUj66zf520tw+rbKP+AbWQd/k1RumFr+tlvRmUUn/4cQL+pF1oAYcJuERfkR32RQfSd8o4gTu/o9KQEWnFPP/LqIyDc0oGvW1IQ+ifYi0rFL6hlEmd2NWv8cmS2tg92D98nwswghpP+O1u4AYJzZnf/7DGi9cFcqREIF9dz8Cc1K/oEWUp1nQJUTYcsMu/gINPeDVzxQ+BvMcL5Q3Y/IlS0PtoiW/EkyNSt9jegV9ojiZsQgECj6W+bbDGT1+vH163Naoem8x17dc81lEiZgrzQJEkI/LX/8wC8K8i04ncF6ZkaVjHGsg9AikoU1o7FzMyzWWkEpuo18gTj1B0wxEKpNWIXFvfBNr8DjDZHksjUNchN/DgHuwRF38TAB/nHM9GJNwZ7dei1t1Su6TQC5vg1Gk1cUy3fdPuITqLanF474CkgUCjqbyW20ua1wKz5wKNAwZhqPRaOYeW/E6XZgQQrBIUFQKUPzN4VSAO1BhvXoU5Rc9ziul81Lg2a7kYXwMFqqI7ABjXzG74v7AKNJFJf4NNFw5cvqYFrw3g5FGtKSUfWNsArkEa9Pih7Z3X/+hcBDDJaa7QUTMUHZn3huOfhKyR4qfsxcCVYpaa+lgftVX4EvE8gt+aisUXti7XUsAtGO26TeHn/MRTsVrX5iSBMYEh6uHvHCzA9gqepoTO3EBoS6RpMktPqfIg+y2P+/Z1/l5/R4bw6jYpXh7ZhONU355JoAGn8gD+egWlhIoNzuFfFfDLQYduBeyTMd7OowBRbLKKkwGbRakxpEc0eZR5KsLqv6pcrcJ74JYD1HvHt48AvYK+4TF4WDj5I4cX8oGEuCBaR7ViEB8r6AXwsB0WL++Jwgw27kj0nIFVL0swcIXK8d9dzAOiZBX9s4ICmNmnxxX87ogbldG7apTa1BlBrIklJM3jWfApFyFI7DDa7QSuvJXQBwZ/Q9IAeKaRnUhL+QhaJYsEadq+qne4+CTbH4KZQNDGJdl33Z2Y2VMMWSFVIFY5xCO9Vvo/gNCcVerBo/G3AGqHFOYyJ0YmhAAQHw0Kjdk5D0cbGoU2otlEbNiA07Zzjs3H4LsLCW9t3EfSOJipq2omBBdzIZoRn4egIhsW1df3qiIc4bhBMelw1herUMUzlqyQU6CYRiCLK+QJIFD/0Oh7Ap6mrgTWIzdn0q6CAhIiwNy2r6cXAryIndhG76waZ0tpLZgqXK4c1LLEkmyVC+PYWemC1IJ3FtuDmZIwILWrzV8KVhJ+eCXkHOYEhwecKwy0yXPHLQVkxM6bvVXAjAX/pHUsGdkvQRFxp04mhrN3sk2+iCkJ7a/w+dgJDay3ZCixv9M3W94ttGqMj0ErsBRSjxhh1UlDjIVOUHmD8qTgZPFdUiF/CdeFIj4JFgN6iTA0sQ740uEOIzDYpllZMSvnfceMVa2SfhYDIoMiUIqOWxYtmMCEW5BMc8Y8hJzA4irdmwSyuaxyWfEotw/7ODbthmwGJGa/5gz6IJykdT/AQkiu22IMr/tW8cnJ4T6r0AXw3F6VBbjGTjjsMkWWQYlmo2LjP8Uot9Jqe3xKzMvFA1cGjpSCdgCxrBvNi92cYrwWkENZRVtqkBI3nlQy9aWJJx9kvhI+dI6JFA0bCGSO3FtWJbRu2KwkhAbOp/tvB+Q3sGDhNJ8jLwX7JJ38ulgh8MPuFkxTYbY9iiz0QO0iLJ89dQBApYeIYlrRckuJXNk9AIxzow/fw7ywRzy3OQf3KKE5M0UDoux+6iwLrBUaUch6oLYhng+0fx4pJFHA7GEsjLJ3qZWEbmAWopqDyQLgmgF4Vj1vjoQBHL0REEPWujkKwFbSVl5sKUr3RnxYsgFvxzyXLviKhbyQSS2WLxaCSl38CG0RAnSP4JOQ5f35DDZcx7xTRqDLPwIuH72vkVfyj9cPYEXL8UvbQvBAIirqSUAoRHjsFJI1mCCZEUlGPhKWJhGvHfBKjwmjC/KPaXpi7z/hAI8BC56Y7nwidSlwenZEhGpCWZ7BaDEcQVphzNHfUcJ/ILpVIBgUu4NE2xdgnGC+O5MvgBw0Wjp29aemxveDtZrzTB4PmH/hi+RIZsR3+x9R8QklsaBUUmBdEE2NgKdk2J5jdz1oshFw673FSX1G77exbQc4JIvJSUE3E5j82L3oAPoioesWuIEIQrr784NichjL6k9ghfOgJUEwrzUoVUxyYNkICFa6a8FFIuhNF7kgzZq9LoxNjM7xVRp5wslc/apFpuW4/yJSscGv8JYJc5lgcvQXL2zD3aJ7Kt76fdG1C3OZVP4InEdQUUDvnB9GzigZlnSKbYkd67UV1DRI76H8wdoz5S1EmemJmLnIWDO1uRUYvFNViVbBhAQmnfovTD6o92IKarnYFZXodIfFr8zLx9RtH2BgngxEV112lKepOFhYaExIF4dINGs3B+ENUsUjwU+ghZNKyXvRwqx5s8d8nTctWyoQFN8VmLOUmZGjKmJAzT46cxyJmChvVZ8yB4LQk1Szfx44X1DtWvj83qD5zlK0nC4ECXYYRrgJhkZc589eEZ32mlTsPJvNjM+1skf6QTYSkVzst3sAPdgwQc8v0nMUtt/Rc87S0Or900x3JOOWKhUWk3bahjRBXhKxHjkRoI9yfNlkrDbp91Wph9ePoO/06hX2CPPhoIKLeV3+A8EfjD2boC5yYhqz9gDnoiAdJm2uvlPWZ+yUX5/qazQmc5m4XQ3Xnt8pgkLbktGMgiXjCAeNS7H1CdDv0ZuLhrGRIEOnacSd8zsD0tNna7F7yZgktzsEjA1EhqCytrGsh8WCdV0iUfLfyAeXrPzJDD4T0xBPBU2YWLdMa4biciY4cdseV/EcivaFS+2X3qxCXlAoFEASmrhIOZHADfWqosji/pqTsg0V4REnW8Wl31nT2o12XI6twVVGQmG8fq7UnLF2ICbGIWRWp/+HOjdnKkYV40Eo7E1Fi5F2KZul+/GmTI2fo87NGNaK3J6J3QHBmoa5nBdvYzj/3h/N6sQJYrGe3/XdVPHXDlUT9M51nMx40vBF8v/bAs0RdUVgwcoSfMlXA7gmSCZ5FD98porwHMYkU8cFS2u6pp35W/rsG9NhW+8nqenSxRSiLGs6HQhUbbDKt4hWgAQgLUh0xujZfMH+O+ZD9dOy8kg48WTuwOMx/IZvsAKhhk4dqbMJYCnTgXSOmsLmFemVxxtlKZMNMHFXss35u+0hxvyziEcxB1JgDuSHPYIKAiOw3cCj8kPMmBfDt71mhMUUsQhU6Kqiz59tVZTDC51y+d9LHTPIPF6BshPQxCatTuF3iufqyI3LubHuEePBoRqSBPQcKz9kWyij99inqHCwpG4OeSBjdhZz1uObp+lRZy9MV28AVveMHMtnK/nXVws1YjPDkGkikM+LnNDt6vQpuKSzcYWM5nu2afoB3SonDdP3ENlAv4SwIdxBC8LC4tPQRd0lSUxL0c8Kl40OOBxbcZAv0RIFLcHUtkDKUIXYw+6v1wH1i8gB0gEjvhRFm2vNqmtxv6LGWhnavp/BgJGTSRDLHBsTm65zysIxY1MBBfbVNCRVeV1KX7s8ZPaemMNme84qotoR+Eu+yr/XscEjTfx5UdR2Uj2uOCkn7q5JaNitaMXNZ1V0IK64FM2JxzQ9Os9U0AXIRrdo8qdr5EnnBbn0rwRZiXeGE2VkOGqbbJK++Zwx+u4iKQBfKN6GHEK/5vpA+N7BAsvYJzFq7lrCgT7hH8dT2IaCQZHMrHIZVfSOife1KDfBmjbjVkPoTsBIVUibsOA9opKIXa+n0cEeAFdWeHHg/RV5egfg6PhHuRBZY6bBa2NRtcUSPD/oX5nbTYe/lIv2dWdUBNQ7J1uYiBfbim32e9xAomNaKciKLhU15RViQg0MY/hkvPBH4npcEKKV9PaGfD92IMzXMGkP0uH6uAI5jzLOSm+OK1O6CdMvVC1SV7HssLYSo/V0WsPO8rDUe5bQjTLaiRX/Tut7E+xFVDoFr3P5ffaf78IYLEXkSnxg8uDcT0Yd510abWw2a9VLKg5BsDyj3R/YjkrQWPm4qstg2byBWOs6NmEyl18ehv3hPwpT9cU6Q7Yn34zsGsp/rtgLZLSm9sbQ2ybikbJ6AiQ3OMv5D7mv76NO8QpDQwxN2dgO/wYakMGf/LZHQ5ScZtC2E7TUjuOVERKgV9ZwvblF0lQJh8YA8Ce346NNS3GM6h6cMtQZ+5GvgOv+DfePKklJIBucvlNtoMSatuj+qapJ6YVA5gNRf9+nsMxgVNk0fYufHWSOstqyt3EEDZuoyX8e3DYe7jFcROJqnfJ19o+XlBnQoPZgMWNYI5/c09vzgHh/XNZwJtqh1rVbXrtdyUMCU3Jrcy46a4MNqmgOljTWeWFgDYQvWOnsXu3JI6o9wACMqV0ltYVqHj/GQVEq55DtRKRf1iRUXotvYe8TJdzfvfaN7yg/RQezGQKo428zlVzdU0aAP8mUxEvRA5fVIrzYDujysNvlw7GN6aXdbhHfIExdvt8Rm9aOrapaaQAdT6jHlfvqB9PWy+HrH1lK4FKz0kc3dcUh52NSDn/o9Iwu93wQ0aZo5KqxwqLmBDNw7pVyjBR9pTUNecrrceHPpETkNUtxhXuecUcqGJiEe16CgUmaciNOehArqdqq/AIvmyilx2dSAQ+KpILzhTkTc2KCuyMWUWibP9IKT29CeYHwKUpvv1vtvm8oScVnd/N1lvxEduGMg1yxwKlbcq79ucDRDhDBbYv+0OBzBAKwaScRW4aaPFAnXXcI0yS4pT+3za6Yd5Y7wuEz+I5jrZpEqQdqPY0DYInbD2iEKM0QwNgUdBLjhPoITZOv3BjeGH+KJ+6BtnPGs/k9Ay2dWqZ2sWtDBfOyXiBeBvGUpCkDM3p43QSAC2JPmeIsp1hzCcM38BjC6cl5QlLX2j5Rj+8YewT+t/KxsYF3WX0gHsl0nzG9IPjDJb5f4SjjH+XAT+2uuahT+8M2sfeVT5BBGgvQmGfSsixf8SrFsP7T0KlINu7U5OBTiBWnPsrWeVGcZJpzjvhEVhk09QiizVHHUcm1QPmcm31Ti8R8NvzcCY23wbT7wpd5EVaBRC2xrQAcB9zYj1Tss4rogdqQLUa3NRbgT3ukT862zb03PRA9bD4rs52DOO1HmNTbqjVajYkzgtDWNsJvkuLPJ93Fl1dZPKpTFJ4/MoXKlE72mHp4ulB0AVhwAXllSYaNeN6kkGvocuL/RnSQCRFxIroQnEVt1JnqLHFZBwBuK0DFrJco1LjFbftU7sLH4ck0rI4ZIlTWtlzMfuN9qhKB4/Ivv0sHk1XNJwyP6Rg78dy5sQVAivHFU0aFXNNCTMjxeH36gQ3ttiuWqCKSamdIgmQEBCoLiW/64Yc1ztl3EAfg6/DETp9r7acETK8mn6ygrgE0RpMWtix/Q+PzsUkKc9xq3GIAe5zuWKglT2fzVJ5XI6QP4s6yWYBMSnAQEBeatLpyN7Sr+5lc/ToPsClhSYRHIDl7dPLOJFHj49eSlBFg4i1HUpfKR6gEVFX4DLiB7Ra4DDpSXxiS8ow1RQbRFVYcRUj2U6serQ+lWVYo9ZRocv3cpNCTSg91V+CmOqT2WoeYphT7rKeNaOXaphZXtWCIk8QNW7BKbF54uQly3q6QUMb3bYc869zEzkKqqhQq/U7uUqRcsWc1/rUaTeKfVSRH03lbGT4wHK19n/dGJEeFlBV6yy3addn5gF6FtKv+5os+6TmMoRuhID39j9RX13Ihy7E8WGZrI07Y/FYzVhNOry0YKU/K5aaLIlJzYME9hU5HEko7Aj1Vncwcn/ujLa4B7kSgErG7teuNF7oQnRo5nmKjuMjbVszFMkBmZFl93T5VZVxq5jogMyBe2CCYLkYa9NFwbaIDfkB85ce+El8bhd/5gUQGFAZFSyWsO8VMaqHJnJ/X+3f8SRsRKY06zfRuFc4Uf0K+ebvEmmlbti0+M378//jLIDoWkQYSPrCYpkOF74bErC6myGBuFyff1O2+6FBpzZ2MhYYK0KOXMwHUVo5f4nTZfl2sabfPCBTjWwfE7nRyPJvjokKk+OoTdshBJV2VBVfipeFyV7xiyz1aWMhdZNT9/1oVNwsWiD3OtYi7gCHP8vlkG2VSZO0SP1fv3Euiz9S2TtFomZXAq4a/wq3yTSr4M5TiZEcDxY+YqdmeiggWebXI/YlHhtxH4ST2HEE+Uo0bw49KnIZ5vCj20Ah2VL1Lhp1a0CokMCfYUSfwyVvruieeQfWoZPKyytqyaPhnXR47jYFQct+l1NgNvql5Or6+o9YVBZKmuaVTTTWXhVvmGSr8P+e+lwi81heIMHL7oN5OvSpP/uOAKl02B4YONXYmkvuy79UJ9kuZq2cpA8GTEunb2KgcX3+dxjxmbXH7msj0V7Bjm0IO5kmr49euHBWnkp7YdCrVfmQ/kN+PVVc+s0ga1s65MpiH3lrtzPK6iUus54jZVjBErSKr1ww73kXnQzFj7nQzgYHL1LiQVgo25CspdrwMKn0qgDvAAl+rWF8fPWorHCM9d7N+1imCfrL6i8gQ3Lcy5oSP4Uss5ew5XhCDEjUY3k6TGit8najWdBseErWQSD+vxBchFknotBzQfTB62uJnqeQHuizqs9KBooiuJgT6Kafx1iMpj+ZnOsm4wylsUxCJFcwqKEs/VVAkVkdHIc9+iVR724mVgB9MoQtgBg7np/toSeqcOEM4p6u4GGIV6ftjPG2peli30ILcpxfR1AEIsx711JWDYOntFxuNrXafc22ZHpv+hj7KZuhWXsMnMFu99XvzxMTZEmecnwnINQ9zsGJuG8yQ4rWG7aMssbzQIVb1WLexmtN33SB7VZFXqoRLXyt7WYnWr1kQ3wbSiTokVJPHOAo+hLVujQVZLGpPZ+Hm0PRYGO/4FDGKzz0CZR7QyRUmPetjZva4UHh4NvGyzn9JGWkPttjVveSH2mFOCFzkmMjFrKPMRla1JblUxAezMSH/u8MyfXDtE3B7XJEirFrZuHPtyr6kTDcb0lX9ZaXcpXcwmwy2ppVMTZ79qC+JD9A9PlkwuagxXo8juGzkT1nrNeYb3ioAdc+13Dw5qBzs5st1AEZCV33c2pHtSBQcvcj+18qUz0QPnvgjz3dePS2pXDBshdvPUzssovV4Wmyye3zVOaluU6gLbs+/snnh7t36i/uyp5DalrZRtrXE/sKSj3SV0SruKpwGgBSuGlZnCfjjpK3+qk3N67Gdo+9jVVf3QWSdWqf0qUpM2HNUEWIZb4R6RpOfpl9nxtun23e0aRtlXTz1hBYEeovMa0QqNZNYPSvDUEM/gQw/WSe2g0skytNsasJ0jU/9ADidjr3YEdwc7bnTeNQ4BaZifbAn7A2h83KZvU636rxkuJA0EF49KDMUaeoXOuL6s75WR6Jlo23D0gNCJtjwJWSTDK4sdJEPuoHiL20K2vaZmbUHOeyvOE4NymviGO7fZUq1N3PTmG0NBd49KREXNYtoKhqzkm54b6DVGegg4IsPqCZlwmvVTFosmEkmTYMLrrEtUeZOsDKUn2AciincsMYmJwKT6liJCawGspfapP4rRAOYfXNqT2SW78V6VyZ4bp3Tfkm7waN1d8YQVoRyO6XJ3iQoby7IPlibzNOvgiBxteeb8N9mvk1WhIbHGQXOjUCUHRvRH4Cmgpw/Tlb4DD9AGBc+uHjuyLrdbpVpSZeoq0Q8216NBLMzSJkst55BqAnRTiIAp+L1sgaq2KkSElDponIZlx96dMH4TUGEZrVMChDplwjNJgZEsGnUlOZPMRBOQMiXi9Gix+WnNlmKHmwJpQXgtaXzjjsYKC8t6joVNUXndKk2h1wWIfDArRSIj5hroaYupWDuyvuQfFNPP3nOr3LY7JjOVdt5zsYSz1qQTU47RwuHfvlQ9kLmoKrzWKl2IpFD3lZBl3CIw2+l1+nATW2W0wlpA9MM6pos7Oph1HerSU9pQQ1mTT9SMfE8drl5hXThiBRKa7SC3tQ7syZjnsj2ZCIQ8LgKgikeDTXXqnIj3LOf+/UrRJZtWkDc/8aWA680tCQKYuKh5EA/bKfYH2T8wk2fynERbgVcLTDW1nA0R18nOvvDrC2MQwZZNx+u6H8yZjsx2nEJWgyPes7LQvYDEithXtDsEDiZ3Rg7EEhsmbO8pEQm6Ol1sVFXAX6gKGoJ+NNg5UxuMsB8OzXujutrmpicanv+4YhyqRQtU9IKzVPKBv89NKwPzmsBVKyWWWZyYT5gfsaE0HzO84z+6aqvKUKebHGOLn6W53/G+O5AumPn5d+dTOC2nmIfJhud3siHGBtaWRVWtceW1tlg1UnFVpHoUb5wSSyPepSNsAUso2i2rAZpvIsXDTaecflaq0o+zzSYWqycavxh7eVG/pY3aUwLn7A5nKDUnNQFqbl/l3fNql6PD7TuC7RvL26j+/qI9ZsIVDnkpmuFWxDi63BoQnK1pPNLT4pakQjWICpZFn56w3DYdsnd/MCifzxPQue9LmhdS0QTnwhFdZNja7y5i7F6C2zN6DiZvr1qwBp7kAvaezTt0LMpHNOolkqwlo
+                        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" alt="" srcset="">
+                    </a>
+                    </div>
+                    <div style="display: inline-block;">
+                    </div>
+                </li>
+                <a href="/" style="margin-top: 12px; float: left; color: rgb(55, 125, 158); font-size: 20px; text-decoration: none; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Yeung Jin</a>
+            <li class="dropdown1">
+                </a>
+                <div class="dropdown1-menu">Fukuoka</div>
+                <div class="dropdown1-content">
+                    <a href="/weather">날씨</a>
+                    <a href="#"></a>
+                    <a href="/map">지도</a>
+                    <a href="#"></a>
+                </div>
+            </li>
+            <li class="dropdown1">
+                <div class="dropdown1-menu">Bulletin Board</div>
+                <div class="dropdown1-content">
+                    <a href="#">YungStagram</a>
+                    <a href="#">공지</a>
+                    <a href="/Community">커뮤니티</a>
+                    <a href="#"></a>
+                </div>
+            </li>
+            <li class="dropdown1">
+                <div class="dropdown1-menu">Schedule</div>
+                <div class="dropdown1-content">
+                    <a href="/schedule" onClick=페이지이동()>스케줄러</a>
+                    <a href="#">학교 일정</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </li>
+            <li class="dropdown1">
+                <div class="dropdown1-menu">Groups</div>
+                <div class="dropdown1-content">
+                    <a href="#">그룹톡</a>
+                    <a href="#"></a>
+                    <a href="#">개인톡</a>
+                    <a href="#"></a>
+                </div>
+            </li>
+            <li class="home"><a href="/login">Log In</a></li>
+        </ul>
+    </div>
+    </nav>
+
+
+
+    <video class="page-cover-image" preload="auto" autoplay loop muted="muted">
+        <source src="HistoryPage_sources/fukuoka_vid.mp4" />
+    </video>
+
+    <div class="NotionPage">
+        <article id="008c1f37-9100-447f-95ce-a83f9e99cf8e" class="page sans">
+            <header>
+<!--                <img class="page-cover-image" src="HistoryPage_sources/fukuokacity.jpg" style="object-position:center 50%"/>-->
+                <h1 class="page-title">후쿠오카의 역사</h1>
+            </header>
+            <div class="page-body">
+                <hr id="b22278a7-5787-4298-b004-971ccdb29f90"/>
+                <p id="00290469-c6f0-40c6-aac8-f61121c91830" class="">후쿠오카(가시이, 하카타, 사와라, 이마즈 지역)는 한국과 중국에서 가장 가까운 도시이기 때문에 일본에서 가장 오래된 도시로 여겨진다. </p>
+                <p id="069d0406-a149-4c99-982e-6895e616d26f" class="">후쿠오카 주변 지역은 가장 오래된 비조몬인 정착지이다.</p>
+                <p id="7d78637f-fa28-409d-881b-f89d17172a9a" class="">고사기와 같은 고대 문헌과 고고학적 발견은 이곳이 일본의 성립에 관해 아주 중요한 장소였음을 확인시켜준다.</p>
+                <p id="5a3c4e5a-c692-43a4-b314-fe095f143a62" class="">어떤 학자들은 도래인들과 일본 황실이 처음 일본에 발을 디딘 곳이라고 주장하기도 하나, 아직 정확히 밝혀진 바는 없다.</p>
+                <p id="6334a420-e8eb-4e3c-a2c9-3be263c997fb" class="">후쿠오카는 한 때 하카타로 불렸고 현재도 하카타 구와 하카타 역에 이 이름이 남아있다.</p>
+                <p id="857ac1e0-d179-4604-90ff-7ccd959963a7" class="">후쿠오카의 하카타 만은 일본과 중국, 한국을 연결하는 관문이었다.</p>
+                <hr id="d3f9dd25-18ea-430e-ab48-63f8dbc6b838"/>
+                <p id="38894148-e3a3-45a7-b8f3-7e28b74e0b73" class=""></p>
+                <p id="570b6d7f-aae6-4398-8812-654cc5ab6a74" class=""></p>
+                <br>
+                <h2 id="a4cdc3b4-c355-4269-8cbc-486414a0bc60" class="">11세기 말</h2>
+                <hr id="abb57319-0e79-4e7a-8f2a-e9806e43fb10"/>
+                <div id="9cfafa1b-4f59-4f53-a48e-acb562d00cfe" class="column-list">
+                    <div id="563797fd-127b-462a-a366-27ee48c1fa7a" style="width:75%" class="column">
+                        <p id="84d9d19a-5f3d-4bfd-9291-13cc8f20745f" class="">11세기 말에 하카타에는 &quot;대당가&quot;(大唐街)라 불리는 중국인 거리가 형성되었다. </p>
+                        <p id="318ab142-02f2-4de7-9a08-b7d2f1d382bf" class="">이국풍의 건물이 늘어서있고 다수의 외국인 상래가 왕래하는 국제도시가 되었다.</p>
+                        <p id="e54c891a-d4a7-4f95-8c11-13a32147722d" class="">송나라 때에는 중국 대륙과 하카타를 오가는 선단이 활발히 왕래했다. </p>
+                        <p id="9265be11-9b05-4b06-9ab9-d0ed3b8867fd" class="">중일 무역으로 막대한 부를 축적한 중국인 상인은 하카타에 거주하며 활발히 상업 활동을 하였고 하카타의 사원과 결탁해 그 힘은 중앙에까지 미쳤다.</p>
+                    </div>
+                    <div id="18e29e8c-d5cb-44e9-b01a-ff39f110c6aa" style="width:25.000000000000007%" class="column">
+                        <figure id="00a5b69a-b228-459a-a2cd-0e85098d575d" class="image">
+                            <a href="HistoryPage_sources/hakataman.jpg">
+                                <img style="width:2560px" src="HistoryPage_sources/hakataman.jpg"/>
+                            </a>
+                        </figure>
+                        <p id="4eb238ed-a34b-44c8-90cb-62ca623032c5" class="block-color-gray">하카타 만</p>
+                    </div>
+                </div>
+                <hr id="4259f835-918b-4a6e-8984-fcbc3fc8588a"/>
+                <p id="a8bab8ab-ffa1-488f-8c45-1bdd915cb2d7" class=""></p>
+                <p id="a856d81e-176e-4102-acf5-0825b932edce" class=""></p>
+                <br>
+                <h2 id="90d17654-7c77-468b-bdd8-0d8b322d1e09" class="">무로마치 시대</h2>
+                <hr id="81dce713-af84-40c1-bd8e-12af3946021a"/>
+                <div id="e0b2e9c4-4de1-40b4-bccb-62d7f3f5fcf0" class="column-list">
+                    <div id="c7b77b99-8512-4b77-9b92-94c969e81f63" style="width:31.25%" class="column">
+                        <figure id="8b97a207-6a5e-45e7-adbf-d73610881096" class="image">
+                            <a href="HistoryPage_sources/muromachihakata.jpg">
+                                <img style="width:600px" src="HistoryPage_sources/muromachihakata.jpg"/>
+                            </a>
+                        </figure>
+                        <p id="837a92b8-5cf8-4bc5-8bc8-4fa48d2cf2fc" class="block-color-gray">무로마치 시대의 하카타</p>
+                    </div>
+                    <div id="1d39cca7-9710-41c5-866a-14bf604b5f9c" style="width:68.75%" class="column">
+                        <p id="c4e6848d-722b-47a9-b3b5-11944d20fac1" class=""><a href="https://ko.wikipedia.org/wiki/%EB%AC%B4%EB%A1%9C%EB%A7%88%EC%B9%98_%EC%8B%9C%EB%8C%80">무로마치 시대</a>에 하카타는 12명의 거상들에 의해 운영되는 일본 최초의 자유 도시였다.</p>
+                        <p id="62975860-a432-4d60-a3f9-a92cff1820af" class="">무역 도시로 번영하였지만 한편으로 <a href="https://ko.wikipedia.org/wiki/%EC%84%BC%EA%B3%A0%EC%BF%A0_%EC%8B%9C%EB%8C%80">센고쿠 시대</a>에 센고쿠 다이묘들의 쟁탈의 대상이 되었다.</p>
+                        <p id="14215f5d-58b4-4233-9513-85617d72fa48" class="">전란으로 피해를 입은 하카타는 <a href="https://ko.wikipedia.org/wiki/1587%EB%85%84">1587년</a>부터 <a href="https://ko.wikipedia.org/wiki/%EB%8F%84%EC%9A%94%ED%86%A0%EB%AF%B8_%ED%9E%88%EB%8D%B0%EC%9A%94%EC%8B%9C">도요토미 히데요시</a>에 의해 부흥하였고 교역의 자유와 시민에 의해 자치가 행해지는 도시가 되었다. </p>
+                        <p id="710c39a2-a424-4878-8a1c-660929f82444" class="">아마 이러한 조치에는 <a href="https://ko.wikipedia.org/wiki/%EC%9E%84%EC%A7%84%EC%99%9C%EB%9E%80">임진왜란</a>의 출병시에 무역 도시 하카타를 물류의 보급 기지로서 활용하고자 했던 히데요시의 의도가 깔려있던 것으로 생각된다.</p>
+                    </div>
+                </div>
+                <hr id="2bf593a3-1997-4b25-856c-366641fe9f7a"/>
+                <p id="dbe74bf2-c41d-483d-85a2-d849a7b2271d" class=""></p>
+                <br>
+                <h2 id="baa6df1f-5b0b-4f26-9ddd-7586c66b0d33" class="">무로마치 시대 이후</h2>
+                <hr id="63125f0a-22e3-42ab-ab38-4c85040d8113"/>
+                <div id="3ccc90fe-ab7d-4431-a57e-0b1de83032e1" class="column-list">
+                    <div id="ea0110c3-2bf7-4c2a-83c1-7064c3f87d28" style="width:68.75%" class="column">
+                        <p id="6f75ad66-64a7-4ecc-9d44-969dea75aa46" class="">역사적으로 하카타는 항구이자 상업 지구였던 반면에 후쿠오카는 많은 사무라이들이 사는 행정 중심이었다. </p>
+                        <p id="3731a4df-b53d-41c6-a04c-3dad2f163e4a" class="">후쿠오카라는 이름은 <a href="https://ko.wikipedia.org/wiki/%ED%9B%84%EC%BF%A0%EC%98%A4%EC%B9%B4_%EB%B2%88">후쿠오카 번</a>의 첫 번째 번주인 <a href="https://ko.wikipedia.org/wiki/%EA%B5%AC%EB%A1%9C%EB%8B%A4_%EB%82%98%EA%B0%80%EB%A7%88%EC%82%AC">구로다 나가마사</a>의 출생지인 <a href="https://ko.wikipedia.org/wiki/%EB%B9%84%EC%A0%A0_%EA%B5%AD">비젠 국</a> 후쿠오카에서 유래한 것으로 옛 후쿠오카는 현재 덴진이라 부르는 주요 쇼핑가가 되어있다.</p>
+                        <p id="e6f6d506-4a84-4b3e-b1d9-b726110901d1" class=""><a href="https://ko.wikipedia.org/wiki/1889%EB%85%84">1889년</a>에 예전의 후쿠오카 시와 하카타 시가 합쳐져 현대의 후쿠오카 시가 성립하였다. </p>
+                        <p id="30c3be20-8fe9-438d-84dc-5718d6d9b97b" class="">하카타와 후쿠오카가 합병을 결정했을 때 새로운 도시의 이름을 놓고 회의가 벌어졌다.</p>
+                        <p id="1f3dacdc-5388-41cf-bf93-8c334164b0ea" class="">처음에는 하카타라는 이름이 선정되었으나 사무라이들의 불만으로 현재의 후쿠오카라는 이름이 선정되었다.</p>
+                        <p id="a2419e25-471e-407d-bac7-fdb41cc1f07f" class="">그러나 하카타라는 이름은 여전히 예전의 하카타 지역의 이름을 지칭하는데 사용되며 그중 가장 유명한 것이 <a href="https://ko.wikipedia.org/wiki/%ED%95%98%EC%B9%B4%ED%83%80_%EC%97%AD">하카타 역</a>이다.</p>
+                    </div>
+                    <div id="bde2a8ec-acd6-40b1-826c-dc3f9c59f52b" style="width:31.25%" class="column">
+                        <figure id="fa37e9d7-1bb0-485a-8878-a46c0ff90083" class="image">
+                            <a href="HistoryPage_sources/guroda.jpg">
+                                <img class="gurodaimg" style="width:240px" src="HistoryPage_sources/guroda.jpg"/>
+                            </a>
+                        </figure>
+                        <p id="c6cdd858-e312-46e5-8f03-13b3b28d54e9" class="block-color-gray">구로다 나가마사</p>
+                        <p id="6a508d3e-de7e-45c3-9447-3f261e6eab21" class=""></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+
+
+
+<!--wtfscript-->
+    <script>
+        const 페이지이동 = () => {
+            console.log('하위');
+        }
+
+        const toggleBtn = document.querySelector('.fa-bars');
+        // const menu = document.querySelector('.navbar__menu');
+        
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            // sns.classList.toggle('active');
+        });
+        // toggleBtn.addEventListener('mouseover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+        // toggleBtn.addEventListener('hover', () => {
+        //     toggleBtn.style.backgroundColor = 'blue';
+        // })
+    </script>
+</body>
+</html>
